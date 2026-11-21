@@ -545,47 +545,56 @@ em, .italic {
   color: var(--c-deep-green);
 }
 
-/* Mobile Drawer */
-.mobile-editorial-drawer {
+/* ── GLOBAL MOBILE NAVIGATION DRAWER (#071A12 Deep Forest Green) ──────────── */
+.mobile-editorial-drawer,
+.mobile-drawer {
   position: fixed;
   top: 0;
   right: 0;
   width: 320px;
   max-width: 86vw;
   height: 100vh;
-  background: var(--c-botanical-black);
-  color: var(--c-white);
+  height: 100dvh;
+  background: #071A12;
+  color: var(--c-white, #FFFFFF);
   z-index: 1100;
   padding: 2.25rem 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   transform: translateX(105%);
-  transition: transform var(--tr-smooth);
-  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.4);
+  transition: transform var(--tr-smooth, 0.35s cubic-bezier(0.16, 1, 0.3, 1));
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.45);
+  box-sizing: border-box;
+  overflow-y: auto;
 }
 
-.mobile-editorial-drawer.is-open {
+.mobile-editorial-drawer.is-open,
+.mobile-drawer.is-open {
   transform: translateX(0);
 }
 
-.mobile-drawer-backdrop {
+.mobile-drawer-backdrop,
+.mobile-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(10, 22, 16, 0.6);
+  background: rgba(7, 26, 18, 0.65);
   backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   z-index: 1090;
   opacity: 0;
   visibility: hidden;
-  transition: all var(--tr-fast);
+  transition: all var(--tr-fast, 0.25s ease);
 }
 
-.mobile-drawer-backdrop.is-open {
+.mobile-drawer-backdrop.is-open,
+.mobile-backdrop.is-open {
   opacity: 1;
   visibility: visible;
 }
 
-.drawer-head {
+.drawer-head,
+.mobile-drawer-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -593,48 +602,142 @@ em, .italic {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.drawer-close {
-  background: none;
-  border: none;
-  color: var(--c-white);
-  cursor: pointer;
-  padding: 0.5rem;
+.drawer-head a,
+.mobile-drawer-top a {
+  display: inline-flex;
+  align-items: center;
 }
 
-.drawer-nav {
+.drawer-head .header-logo-img,
+.mobile-drawer-top .brand-logo {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+.drawer-close,
+.mobile-close {
+  background: none;
+  border: none;
+  color: var(--c-white, #FFFFFF);
+  cursor: pointer;
+  padding: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: color var(--tr-fast, 0.2s ease), transform 0.2s ease;
+}
+
+.drawer-close:hover,
+.mobile-close:hover {
+  color: var(--c-lime, #82B918);
+  transform: scale(1.05);
+}
+
+.drawer-nav,
+.mobile-nav {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
   margin-top: 2rem;
 }
 
-.drawer-nav a {
-  font-family: var(--font-serif);
+.drawer-nav a,
+.mobile-nav-link {
+  font-family: var(--font-serif, "Cormorant Garamond", Georgia, serif);
   font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 1.25;
   color: #DDE7DF;
-  transition: color var(--tr-fast);
+  text-decoration: none;
+  transition: color var(--tr-fast, 0.2s ease), transform 0.2s ease;
+  display: inline-block;
+  padding: 0.15rem 0;
+  border-bottom: none;
 }
 
-.drawer-nav a.active, .drawer-nav a:hover {
-  color: var(--c-lime);
+.drawer-nav a:hover,
+.mobile-nav-link:hover {
+  color: var(--c-lime, #82B918);
+  transform: translateX(4px);
 }
 
-.drawer-foot {
-  padding-top: 2rem;
+.drawer-nav a.active,
+.mobile-nav-link.active {
+  color: var(--c-lime, #82B918);
+  font-weight: 600;
+}
+
+.drawer-foot,
+.mobile-drawer-foot {
+  padding-top: 1.75rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: auto;
 }
 
-.drawer-foot .branch-nums {
+.btn-drawer-cta,
+.btn-primary-full {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 0.85rem 1rem;
+  background: #82B918;
+  color: #071A12 !important;
+  font-family: var(--font-sans, "Inter", sans-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 4px 14px rgba(130, 185, 24, 0.28);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn-drawer-cta:hover,
+.btn-primary-full:hover {
+  background: #92cd1d;
+  color: #071A12 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(130, 185, 24, 0.35);
+}
+
+.drawer-foot .branch-nums,
+.mobile-contact-line {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  font-family: var(--font-sans, "Inter", sans-serif);
   font-size: 0.85rem;
+  line-height: 1.5;
   color: #9AB0A1;
-  margin-top: 1rem;
 }
 
-.drawer-foot .branch-nums strong {
-  color: var(--c-white);
+.drawer-foot .branch-nums strong,
+.mobile-contact-line strong {
+  color: var(--c-white, #FFFFFF);
+  font-weight: 600;
+}
+
+.drawer-foot .branch-nums a,
+.mobile-contact-line a {
+  color: #DDE7DF;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.drawer-foot .branch-nums a:hover,
+.mobile-contact-line a:hover {
+  color: #82B918;
+}
+
+.drawer-foot .drawer-timing-note,
+.drawer-timing-note {
+  font-size: 0.75rem;
+  color: #82B918;
+  margin-top: 0.35rem;
+  line-height: 1.4;
 }
 
 /* ==========================================================================
@@ -1054,6 +1157,36 @@ em, .italic {
   margin: 0;
 }
 
+.specialities-footer-cta {
+  margin-top: 2.75rem;
+  background: var(--c-white);
+  border: 1px solid var(--c-ivory-border);
+  border-radius: var(--radius-xs);
+  padding: 2.25rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  box-shadow: 0 4px 20px rgba(18, 40, 29, 0.03);
+}
+
+.specialities-footer-cta h4 {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--c-botanical-black);
+  margin-bottom: 0.35rem;
+}
+
+.specialities-footer-cta p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--c-ink-soft);
+  max-width: 620px;
+  margin: 0;
+}
+
 /* ==========================================================================
    06. DOCTOR PRESENTATION — EDITORIAL PROFILES (NOT CARDS!)
    ========================================================================== */
@@ -1220,97 +1353,390 @@ em, .italic {
 }
 
 /* ==========================================================================
-   PATIENT FEEDBACK SECTION (CONTROLLED DISPLAY VIA SITE_ASSETS CONFIG)
+   PATIENT REVIEWS SECTION — "WHAT OUR PATIENTS SAY"
+   Brand Palette: Deep Forest Green (#07501F, #071A12), Lime Green (#82B918), Warm Ivory (#F8F7F0)
+   Cards: 12-16px rounded corners, responsive carousel with touch swipe & multiple desktop view
    ========================================================================== */
-.patient-feedback-section {
-  background: var(--c-ivory);
-  padding: var(--sp-2xl) 0;
-  border-bottom: 1px solid var(--c-ivory-border);
+.patient-reviews-section {
+  background: var(--c-ivory, #F8F7F0);
+  padding: 5rem 0;
+  border-bottom: 1px solid var(--c-ivory-border, #D8D2C2);
+  position: relative;
+  overflow: hidden;
 }
 
-.feedback-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+.reviews-section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2.75rem;
+}
+
+.reviews-header-text .editorial-tag {
+  display: inline-block;
+  font-family: var(--font-sans, "Plus Jakarta Sans", sans-serif);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #82B918;
+  background: rgba(130, 185, 24, 0.12);
+  padding: 0.35rem 0.85rem;
+  border-radius: 4px;
+  margin-bottom: 0.85rem;
+}
+
+.reviews-heading {
+  font-family: var(--font-serif, "Fraunces", "Cormorant Garamond", Georgia, serif);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 600;
+  color: #07501F;
+  line-height: 1.15;
+  margin: 0 0 0.5rem 0;
+}
+
+.reviews-subtitle {
+  font-family: var(--font-sans, "Plus Jakarta Sans", sans-serif);
+  font-size: 1.05rem;
+  color: #596B60;
+  margin: 0;
+}
+
+.reviews-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-shrink: 0;
+}
+
+/* Nav Arrows */
+.reviews-nav-arrows {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.rev-nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(7, 80, 31, 0.2);
+  background: #FFFFFF;
+  color: #07501F;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(7, 26, 18, 0.04);
+}
+
+.rev-nav-btn:hover:not(:disabled) {
+  background: #07501F;
+  color: #FFFFFF;
+  border-color: #07501F;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(7, 80, 31, 0.18);
+}
+
+.rev-nav-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Google Reviews Button */
+.btn-google-reviews {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.7rem 1.25rem;
+  background: #FFFFFF;
+  color: #07501F;
+  border: 1px solid rgba(7, 80, 31, 0.2);
+  border-radius: 8px;
+  font-family: var(--font-sans, "Plus Jakarta Sans", sans-serif);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(7, 26, 18, 0.04);
+}
+
+.btn-google-reviews:hover {
+  background: #07501F;
+  color: #FFFFFF;
+  border-color: #07501F;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(7, 80, 31, 0.16);
+}
+
+.btn-google-reviews svg {
+  flex-shrink: 0;
+}
+
+/* Carousel Viewport */
+.reviews-carousel-viewport {
+  overflow: hidden;
+  width: 100%;
+  padding: 0.5rem 0.25rem 1.5rem;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.reviews-track {
+  display: flex;
   gap: 1.5rem;
-  margin-top: 2.5rem;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
 }
 
-.feedback-card {
-  background: var(--c-white);
-  border: 1px solid var(--c-ivory-border);
-  border-radius: var(--radius-xs);
+/* Review Cards — 12-16px rounded corners */
+.review-card {
+  background: #FFFFFF;
+  border: 1px solid var(--c-ivory-border, #D8D2C2);
+  border-radius: 16px;
   padding: 2rem 1.75rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 0 4px 16px rgba(18, 40, 29, 0.03);
+  box-shadow: 0 8px 24px rgba(7, 26, 18, 0.04);
+  box-sizing: border-box;
+  flex-shrink: 0;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   position: relative;
 }
 
-.feedback-card-header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+.review-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 34px rgba(7, 80, 31, 0.09);
+  border-color: rgba(130, 185, 24, 0.45);
+}
+
+/* Responsive card widths */
+@media (min-width: 1024px) {
+  .review-card {
+    width: calc((100% - 2 * 1.5rem) / 3);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .review-card {
+    width: calc((100% - 1.5rem) / 2);
+  }
+}
+
+@media (max-width: 767px) {
+  .review-card {
+    width: 100%;
+  }
+}
+
+.review-card-top {
   margin-bottom: 1.25rem;
 }
 
-.feedback-initials-badge {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--c-lime-soft);
-  color: var(--c-botanical-deep);
-  font-family: var(--font-serif);
-  font-weight: 700;
-  font-size: 1.1rem;
+.review-author-meta {
   display: flex;
   align-items: center;
-  justify-content: center;
-  border: 1px solid var(--c-lime-dark);
-  flex-shrink: 0;
-}
-
-.feedback-author-info strong {
-  display: block;
-  font-size: 0.95rem;
-  color: var(--c-botanical-deep);
-  font-family: var(--font-serif);
-}
-
-.feedback-author-info span {
-  font-size: 0.72rem;
-  color: var(--c-ink-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  font-weight: 700;
-}
-
-.feedback-status-pill {
-  display: inline-block;
-  font-size: 0.68rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--c-botanical-forest);
-  background: var(--c-ivory-sand);
-  padding: 0.2rem 0.55rem;
-  border-radius: var(--radius-xs);
+  gap: 0.85rem;
   margin-bottom: 1rem;
 }
 
-.feedback-quote {
-  font-size: 0.9rem;
-  line-height: 1.65;
-  color: var(--c-ink-muted);
-  font-style: italic;
-  margin-bottom: 1.5rem;
+.review-initials-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(130, 185, 24, 0.12);
+  color: #07501F;
+  border: 1.5px solid #82B918;
+  font-family: var(--font-serif, "Fraunces", Georgia, serif);
+  font-weight: 700;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
-.feedback-footer-note {
+.review-author-names strong {
+  display: block;
+  font-family: var(--font-serif, "Fraunces", Georgia, serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #07501F;
+  line-height: 1.2;
+}
+
+.review-author-names span {
+  display: block;
+  font-family: var(--font-sans, "Plus Jakarta Sans", sans-serif);
   font-size: 0.75rem;
-  color: var(--c-ink-muted);
-  border-top: 1px dashed var(--c-ivory-border);
-  padding-top: 0.75rem;
+  color: #596B60;
+  margin-top: 0.2rem;
+  letter-spacing: 0.02em;
+}
+
+/* Verified Status Pill */
+.review-verified-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-sans, "Plus Jakarta Sans", sans-serif);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #174B2B;
+  background: rgba(130, 185, 24, 0.14);
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  margin-bottom: 0.85rem;
+}
+
+.review-verified-pill svg {
+  color: #82B918;
+}
+
+/* Star Rating (Rendered ONLY when verified) */
+.review-stars-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-bottom: 0.85rem;
+  color: #82B918;
+}
+
+.review-stars-wrap .stars-score {
+  font-family: var(--font-sans, "Plus Jakarta Sans", sans-serif);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #07501F;
+  margin-left: 0.35rem;
+}
+
+.review-quote-text {
+  font-family: var(--font-sans, "Plus Jakarta Sans", sans-serif);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #252B27;
+  font-style: italic;
+  margin: 0 0 1.5rem 0;
+  position: relative;
+}
+
+.review-quote-text::before {
+  content: "“";
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: 2.2rem;
+  line-height: 0;
+  position: relative;
+  top: 0.35rem;
+  margin-right: 0.15rem;
+  color: #82B918;
+  font-style: normal;
+}
+
+.review-card-footer {
+  border-top: 1px dashed var(--c-ivory-border, #D8D2C2);
+  padding-top: 0.85rem;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-family: var(--font-sans, "Plus Jakarta Sans", sans-serif);
+  font-size: 0.75rem;
+  color: #596B60;
+}
+
+.review-consultant-note {
+  font-weight: 500;
+}
+
+.review-heritage-badge {
+  color: #82B918;
+  font-weight: 700;
+  font-size: 0.72rem;
+}
+
+/* Footer Row & Dots */
+.reviews-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.reviews-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.reviews-dots .rev-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(7, 80, 31, 0.2);
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.25s ease;
+}
+
+.reviews-dots .rev-dot.active {
+  background: #82B918;
+  width: 26px;
+  border-radius: 10px;
+}
+
+.google-review-mobile-action {
+  display: none;
+  width: 100%;
+}
+
+/* Breakpoint rules */
+@media (max-width: 1023px) {
+  .reviews-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+  .reviews-header-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 767px) {
+  .patient-reviews-section {
+    padding: 3.5rem 0;
+  }
+  .btn-google-reviews {
+    display: none;
+  }
+  .google-review-mobile-action {
+    display: block;
+    margin-top: 1rem;
+  }
+  .google-review-mobile-action .btn-google-reviews {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+  }
+  .reviews-footer-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+  .reviews-dots {
+    justify-content: center;
+  }
 }
 
 /* ==========================================================================
@@ -1484,143 +1910,93 @@ em, .italic {
 }
 
 /* ==========================================================================
-   08. IMMERSIVE HORIZONTAL PHOTOGRAPHY GALLERY (AKOLA CLINIC PHOTOGRAPHS)
+   08. CLASSICAL PRACTICE & CLINICAL ETHOS (TYPOGRAPHY-LED EDITORIAL)
    ========================================================================== */
-.botanical-gallery-section {
+.botanical-ethos-section {
   background: var(--c-botanical-black);
   color: var(--c-white);
   padding: var(--sp-2xl) 0;
   position: relative;
   overflow: hidden;
+  border-top: 1px solid rgba(152, 212, 55, 0.2);
+  border-bottom: 1px solid rgba(152, 212, 55, 0.2);
 }
 
-.gallery-head-row {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-bottom: 2.5rem;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-
-.gallery-head-row h2 {
+.botanical-ethos-section .editorial-section-head h2 {
   color: var(--c-white);
 }
 
-.gallery-head-row p {
-  color: #B4C4B8;
-  max-width: 440px;
-  font-size: 0.95rem;
-}
-
-/* Immersive Gallery Carousel */
-.gallery-carousel-frame {
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--radius-xs);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: var(--c-botanical-deep);
-  height: 520px;
-}
-
-.gallery-track-slider {
-  display: flex;
-  height: 100%;
-  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
-}
-
-.gallery-slide-item {
-  min-width: 100%;
-  height: 100%;
-  position: relative;
-  background: var(--c-botanical-deep);
-}
-
-.gallery-slide-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* Overlay caption */
-.slide-caption-bar {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(to top, rgba(10, 22, 16, 0.95) 0%, rgba(10, 22, 16, 0.5) 70%, transparent 100%);
-  padding: 3rem 2.5rem 1.75rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.slide-caption-bar strong {
-  font-family: var(--font-serif);
-  font-size: 1.35rem;
-  color: var(--c-white);
-}
-
-.slide-caption-bar span {
-  font-size: 0.85rem;
+.botanical-ethos-section .editorial-section-head .editorial-tag {
   color: var(--c-lime);
+  border-color: rgba(152, 212, 55, 0.4);
 }
 
-/* Controls */
-.gallery-nav-controls {
-  position: absolute;
-  bottom: 2rem;
-  right: 2.5rem;
+.botanical-ethos-section .editorial-section-head .text-muted {
+  color: #B4C4B8 !important;
+}
+
+.ethos-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.ethos-editorial-card {
+  background: rgba(18, 40, 29, 0.85);
+  border: 1px solid rgba(152, 212, 55, 0.25);
+  border-radius: var(--radius-xs);
+  padding: 2.5rem 2rem;
   display: flex;
-  align-items: center;
-  gap: 1rem;
-  z-index: 10;
+  flex-direction: column;
+  transition: all var(--tr-fast);
 }
 
-.gallery-ctrl-btn {
-  width: 46px;
-  height: 46px;
+.ethos-editorial-card:hover {
+  border-color: var(--c-lime);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+.ethos-icon-wrap {
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  color: var(--c-white);
+  background: rgba(152, 212, 55, 0.15);
+  color: var(--c-lime);
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  transition: all var(--tr-fast);
+  margin-bottom: 1.5rem;
 }
 
-.gallery-ctrl-btn:hover {
-  background: var(--c-lime);
-  color: var(--c-botanical-black);
-  border-color: var(--c-lime);
+.ethos-icon-wrap svg {
+  width: 24px;
+  height: 24px;
 }
 
-.gallery-dots-bar {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+.ethos-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--c-lime);
+  margin-bottom: 0.75rem;
+  display: inline-block;
 }
 
-.g-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.35);
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  transition: all var(--tr-fast);
+.ethos-editorial-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: var(--c-white);
+  margin-bottom: 0.85rem;
+  line-height: 1.3;
 }
 
-.g-dot.active {
-  background: var(--c-lime);
-  width: 26px;
-  border-radius: 4px;
+.ethos-editorial-card p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #C2D4C7;
+  margin: 0;
 }
 
 /* ==========================================================================
@@ -2203,8 +2579,24 @@ em, .italic {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
   }
-  .gallery-carousel-frame {
-    height: 400px;
+  .ethos-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .approach-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .specialities-footer-cta {
+    padding: 1.75rem 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+  .specialities-footer-cta .btn-botanical {
+    width: 100%;
+    justify-content: center;
   }
   .footer-columns-group {
     grid-template-columns: 1fr 1fr;
@@ -2326,18 +2718,13 @@ em, .italic {
     min-height: 48px;
     justify-content: center;
   }
-  .gallery-carousel-frame {
-    height: 300px;
+  .ethos-editorial-card {
+    padding: 1.85rem 1.35rem;
   }
-  .slide-caption-bar {
-    padding: 1.5rem 1.25rem 1rem;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.35rem;
-  }
-  .gallery-nav-controls {
-    bottom: 1rem;
-    right: 1.25rem;
+  .approach-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
   }
   .approach-timeline {
     grid-template-columns: 1fr;

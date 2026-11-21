@@ -35,33 +35,42 @@
      2. MOBILE NAVIGATION DRAWER
   ============================================================ */
   function initMobileNav() {
-    var toggle   = document.getElementById("mobileToggle");
-    var drawer   = document.getElementById("mobileDrawer");
-    var backdrop = document.getElementById("mobileBackdrop");
-    var close    = document.getElementById("mobileClose");
-    if (!toggle || !drawer) return;
+    var toggles = document.querySelectorAll("#mobileToggle, #mobileNavToggle, .mobile-toggle, .mobile-nav-toggle");
+    var drawer = document.getElementById("mobileEditorialDrawer") || document.getElementById("mobileDrawer");
+    var backdrop = document.getElementById("mobileDrawerBackdrop") || document.getElementById("mobileBackdrop");
+    var closeButtons = document.querySelectorAll("#mobileDrawerClose, #mobileClose, .drawer-close, .mobile-close");
+    if (!drawer) return;
 
     function open() {
       drawer.classList.add("is-open");
       if (backdrop) backdrop.classList.add("is-open");
-      toggle.setAttribute("aria-expanded", "true");
+      toggles.forEach(function (btn) { btn.setAttribute("aria-expanded", "true"); });
       document.body.style.overflow = "hidden";
     }
     function closeMenu() {
       drawer.classList.remove("is-open");
       if (backdrop) backdrop.classList.remove("is-open");
-      toggle.setAttribute("aria-expanded", "false");
+      toggles.forEach(function (btn) { btn.setAttribute("aria-expanded", "false"); });
       document.body.style.overflow = "";
     }
 
-    toggle.addEventListener("click", function () {
-      drawer.classList.contains("is-open") ? closeMenu() : open();
+    toggles.forEach(function (btn) {
+      btn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        drawer.classList.contains("is-open") ? closeMenu() : open();
+      });
     });
-    if (close) close.addEventListener("click", closeMenu);
+
+    closeButtons.forEach(function (btn) {
+      btn.addEventListener("click", closeMenu);
+    });
+
     if (backdrop) backdrop.addEventListener("click", closeMenu);
+
     drawer.querySelectorAll("a").forEach(function (a) {
       a.addEventListener("click", closeMenu);
     });
+
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && drawer.classList.contains("is-open")) closeMenu();
     });

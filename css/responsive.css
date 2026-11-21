@@ -131,7 +131,12 @@
 
   /* Approach */
   .approach-heading { font-size: clamp(1.9rem, 7vw, 2.8rem); }
-  .approach-item { grid-template-columns: 50px 1fr; }
+  .approach-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
 
   /* Gallery */
   .gallery-header { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
@@ -169,12 +174,24 @@
     font-size: 1.05rem;
     padding: 0.65rem 1rem;
   }
+  .about-hero-grid,
+  .heritage-grid {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+  .about-hero-frame,
+  .heritage-image-frame {
+    aspect-ratio: 16 / 10;
+    max-height: 380px;
+    border-radius: 14px;
+  }
   .doctors-grid {
     grid-template-columns: 1fr;
     gap: 1.75rem;
   }
   .doctor-card {
     padding: 2rem 1.5rem;
+    border-radius: 12px;
   }
   .approach-grid {
     grid-template-columns: 1fr;
@@ -182,6 +199,13 @@
   }
   .approach-item {
     padding: 1.5rem 1.25rem;
+    border-radius: 12px;
+  }
+  .journey-list {
+    gap: 0.85rem;
+  }
+  .journey-card {
+    border-radius: 12px;
   }
   .contact-grid {
     grid-template-columns: 1fr;
@@ -254,8 +278,41 @@
     font-size: 0.98rem;
     padding: 0.5rem 0.75rem;
   }
+  .about-hero {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+  .about-hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+  .about-hero-actions .btn {
+    width: 100%;
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .about-hero-frame,
+  .heritage-image-frame {
+    aspect-ratio: 16 / 11;
+    border-radius: 14px;
+  }
   .doctor-card {
     padding: 1.75rem 1.25rem;
+    border-radius: 12px;
+  }
+  .doctor-header-row {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .doctor-avatar-wrap {
+    width: 95px;
+    height: 125px;
+    min-width: 95px;
+    border-radius: 12px;
   }
   .doctor-card-name {
     font-size: 1.4rem;
@@ -266,6 +323,11 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    border-radius: 8px;
+  }
+  .journey-card {
+    padding: 1.15rem 1rem;
+    border-radius: 10px;
   }
   .contact-branch-card {
     padding: 1.75rem 1.25rem;
@@ -328,7 +390,10 @@
   .brand-logo { height: 38px; max-width: 140px; }
   .footer-logo { height: 38px; }
   .hero-heading { font-size: 2.1rem; }
+  .about-hero-title { font-size: 2.1rem; }
   .heritage-year { font-size: 3rem; }
+  .doctor-avatar-wrap { width: 85px; height: 115px; min-width: 85px; }
+  .doctor-card-name { font-size: 1.35rem; }
 }
 
 /* ── ULTRA-COMPACT MOBILE (≤ 360px) ──────────────────────────────────────── */
@@ -336,6 +401,19 @@
   .container { padding-inline: 1rem; }
   .header-inner { padding-inline: 1rem; }
   .brand-logo { height: 36px; max-width: 130px; }
+  .about-hero-title { font-size: 1.85rem; }
+  .about-hero-frame,
+  .heritage-image-frame {
+    border-radius: 12px;
+  }
+  .doctor-card-name { font-size: 1.22rem; }
+  .doctor-avatar-wrap { width: 75px; height: 100px; min-width: 75px; border-radius: 10px; }
+  .doctor-card { border-radius: 10px; }
+  .doctor-card-meta { gap: 0.5rem; }
+  .doctor-meta-row { font-size: 0.82rem; }
+  .approach-item { padding: 1.25rem 0.95rem; border-radius: 10px; }
+  .approach-item h3 { font-size: 1.15rem; }
+  .journey-card { border-radius: 8px; }
   .clinic-discovery-grid,
   .contact-branch-card,
   .doctor-card,

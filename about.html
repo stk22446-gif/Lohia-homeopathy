@@ -8,11 +8,6 @@
   <meta name="description"
     content="Learn about Lohia's Homoeopathy, established in 1992. Dr. Sudhir Lohia (Bengaluru) and Dr. Chaitanya Arvindkumar Murti (Akola) provide classical homeopathic consultation and healthcare guidance.">
   <meta name="keywords"
-    content="About Dr Sudhir Lohia, Dr Chaitanya Arvindkumar Murti, Lohia's Homoeopathy history, classical homeopathy Bengaluru, homeopathic clinic Akola">
-  <title>About Lohia's Homoeopathy | Doctors, Heritage &amp; Approach</title>
-  <meta name="description"
-    content="Learn about Lohia's Homoeopathy, established in 1992. Dr. Sudhir Lohia (Bengaluru) and Dr. Chaitanya Arvindkumar Murti (Akola) provide classical homeopathic consultation and healthcare guidance.">
-  <meta name="keywords"
     content="About Dr Sudhir Lohia, Dr Chaitanya Arvindkumar Murti, Lohia's Homoeopathy history, classical homeopathy Bengaluru, homeopathic clinic Akola, homeopathic approach">
   <link rel="canonical" href="https://www.lohiashomoeopathy.com/about.html">
 
@@ -38,7 +33,9 @@
 <body>
 
   <a href="#mainContent" class="skip-link">Skip to main content</a>
-<header class="site-header" id="siteHeader">
+
+  <!-- Header -->
+  <header class="site-header" id="siteHeader">
     <div class="header-inner">
       <a href="index.html" class="brand" aria-label="Lohia's Homoeopathy Home">
         <img src="https://res.cloudinary.com/mgkpr2it/image/upload/v1795220510/fdc22116-5a44-416c-9e67-ab1f7a3a4d89.png" alt="Lohia's Homoeopathy" class="brand-logo" width="160" height="52">
@@ -58,52 +55,73 @@
     </div>
   </header>
 
-  <div class="mobile-backdrop" id="mobileBackdrop"></div>
-  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
-    <div class="mobile-drawer-top">
-      <a href="index.html" class="brand">
-        <img src="https://res.cloudinary.com/mgkpr2it/image/upload/v1795220510/fdc22116-5a44-416c-9e67-ab1f7a3a4d89.png" alt="Lohia's Homoeopathy" class="brand-logo" width="130" height="42">
-      </a>
-      <button type="button" class="mobile-close" id="mobileClose" aria-label="Close menu">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop"></div>
+  <aside class="mobile-editorial-drawer" id="mobileEditorialDrawer" aria-label="Mobile Navigation">
+    <div>
+      <div class="drawer-head">
+        <a href="index.html">
+          <img
+            src="https://res.cloudinary.com/mgkpr2it/image/upload/v1795220510/fdc22116-5a44-416c-9e67-ab1f7a3a4d89.png"
+            alt="Lohia's Homoeopathy" class="header-logo-img" width="140" height="42">
+        </a>
+        <button type="button" class="drawer-close" id="mobileDrawerClose" aria-label="Close menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+
+      <nav class="drawer-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About &amp; Doctors</a>
+        <a href="clinics.html">Our Clinics</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
-    <nav class="mobile-nav">
-      <a href="index.html" class="mobile-nav-link">Home</a>
-      <a href="about.html" class="mobile-nav-link active">About</a>
-      <a href="clinics.html" class="mobile-nav-link">Our Clinics</a>
-      <a href="contact.html" class="mobile-nav-link">Contact</a>
-    </nav>
-    <div class="mobile-drawer-foot">
-      <a href="appointment.html" class="btn-primary-full">Book Appointment</a>
-      <div class="mobile-contact-line">
-        <a href="tel:+919422161321">+91 9422 161 321</a>
-        <span>&middot;</span>
-        <a href="tel:+919420794417">+91 9420 794 417</a>
+
+    <div class="drawer-foot">
+      <a href="appointment.html" class="btn-drawer-cta">Book Consultation</a>
+      <div class="branch-nums">
+        <div><strong>Bengaluru:</strong> <a href="tel:+919422161321" style="color: inherit; text-decoration: none;">+91 9422 161 321</a></div>
+        <div><strong>Akola:</strong> <a href="tel:+919420794417" style="color: inherit; text-decoration: none;">+91 9420 794 417</a></div>
+        <div class="drawer-timing-note">Bengaluru: Mon–Sat 10am–1pm &amp; 4pm–6pm · Sun Closed</div>
       </div>
     </div>
   </aside>
 
   <main id="mainContent">
-    <!-- Page Header -->
-    <section class="section section-light-sage"
-      style="padding-top: var(--space-xl); padding-bottom: var(--space-xl); border-bottom: 1px solid var(--color-border);">
-      <div class="container">
-        <span class="eyebrow">Established 1992</span>
-        <h1 style="max-width: 780px; margin-bottom: 1rem;">Three decades of dedicated homeopathic care.</h1>
-        <p class="lead" style="max-width: 680px;">
-          Lohia's Homoeopathy is an established clinical consulting practice serving patients through classical
-          homeopathic principles, structured consultation, and tailored healthcare guidance.
-        </p>
+    <!-- 1. ABOUT HERO SECTION -->
+    <section class="section section-light-sage about-hero">
+      <div class="container about-hero-grid">
+        <div class="about-hero-text">
+          <span class="eyebrow">Established 1992</span>
+          <h1 class="about-hero-title">Three decades of dedicated homeopathic care.</h1>
+          <p class="lead about-hero-lead">
+            Lohia's Homoeopathy is an established clinical consulting practice serving patients through classical
+            homeopathic principles, structured consultation, and tailored healthcare guidance.
+          </p>
+          <div class="btn-group about-hero-actions">
+            <a href="appointment.html" class="btn btn-primary">Schedule Consultation</a>
+            <a href="clinics.html" class="btn btn-secondary">Explore Our Clinics</a>
+          </div>
+        </div>
+        <div class="about-hero-visual">
+          <div class="about-hero-frame reveal-on-scroll">
+            <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=1000&q=80"
+              alt="Tasteful homeopathic globules and consultation remedies under soft natural light" width="560" height="420">
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Heritage & Story -->
-    <section class="section">
+    <!-- 2. HERITAGE SECTION -->
+    <section class="section section-white" id="heritageStory">
       <div class="container heritage-grid">
         <div class="heritage-image-frame reveal-on-scroll">
-          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=80"
-            alt="Clinical case taking and consultation setup" width="520" height="440">
+          <img src="https://images.unsplash.com/photo-1512069772995-ec65ed45afd6?auto=format&fit=crop&w=1000&q=80"
+            alt="Natural botanical preparations and classical homeopathic remedy vials" width="520" height="440">
         </div>
 
         <div class="heritage-text-col reveal-on-scroll">
@@ -132,8 +150,8 @@
       </div>
     </section>
 
-    <!-- Doctors Section -->
-    <section class="doctors-section">
+    <!-- 3. DOCTORS SECTION -->
+    <section class="doctors-section" id="doctorsTeam">
       <div class="container">
         <div class="section-header text-center reveal-on-scroll">
           <span class="eyebrow">Our Clinical Team</span>
@@ -146,8 +164,16 @@
           <div class="doctor-card reveal-on-scroll">
             <div>
               <span class="doctor-branch-pill">Bengaluru Branch</span>
-              <h3 class="doctor-card-name">Dr. Sudhir Lohia</h3>
-              <p class="doctor-card-title">Homoeopath &amp; Health Care Consultant</p>
+              <div class="doctor-header-row">
+                <div class="doctor-avatar-wrap">
+                  <img src="assets/images/doctor-placeholder-lohia.svg" alt="Dr. Sudhir Lohia — Profile Reference" width="110" height="145">
+                </div>
+                <div class="doctor-info-col">
+                  <h3 class="doctor-card-name">Dr. Sudhir Lohia</h3>
+                  <p class="doctor-card-title">Homoeopath &amp; Health Care Consultant</p>
+                  <span class="doctor-badge-tag tag-reference">Profile Reference · Since 1992</span>
+                </div>
+              </div>
               <p class="doctor-card-desc">
                 Leading the Bengaluru clinical practice, Dr. Sudhir Lohia has been practicing classical homeopathy since
                 1992. He brings over three decades of clinical experience in individual constitutional evaluation,
@@ -160,14 +186,14 @@
                   <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
                   <circle cx="12" cy="10" r="3" />
                 </svg>
-                <span>Pashmina Water Front, Battarahalli, Bengaluru</span>
+                <span>Pashmina Water Front, Tower 3, 25D, Old Madras Road, Battarahalli, Bengaluru – 560049</span>
               </div>
               <div class="doctor-meta-row">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path
                     d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                 </svg>
-                <a href="tel:+919422161321"><strong>+91 9422161321</strong></a>
+                <a href="tel:+919422161321"><strong>+91 9422 161 321</strong></a>
               </div>
               <div class="doctor-meta-row">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -177,7 +203,7 @@
                 <span>Mon–Sat: 10:00 AM – 1:00 PM &amp; 4:00 PM – 6:00 PM (Sunday Closed)</span>
               </div>
               <div class="doctor-card-actions">
-                <a href="appointment.html?branch=bengaluru" class="btn btn-secondary btn-sm" style="width: 100%;">
+                <a href="appointment.html?branch=bengaluru" class="btn btn-secondary btn-sm">
                   Book Bengaluru Consultation
                 </a>
               </div>
@@ -188,8 +214,16 @@
           <div class="doctor-card reveal-on-scroll">
             <div>
               <span class="doctor-branch-pill">Akola Branch</span>
-              <h3 class="doctor-card-name">Dr. Chaitanya Arvindkumar Murti</h3>
-              <p class="doctor-card-title">Consulting Homoeopath · Akola Branch</p>
+              <div class="doctor-header-row">
+                <div class="doctor-avatar-wrap">
+                  <img src="https://res.cloudinary.com/mgkpr2it/image/upload/v1795217578/download.jpg" alt="Dr. Chaitanya Arvindkumar Murti — Consulting Homoeopath" width="110" height="145">
+                </div>
+                <div class="doctor-info-col">
+                  <h3 class="doctor-card-name">Dr. Chaitanya Arvindkumar Murti</h3>
+                  <p class="doctor-card-title">Consulting Homoeopath · Akola Branch</p>
+                  <span class="doctor-badge-tag tag-consulting">Consulting Doctor</span>
+                </div>
+              </div>
               <p class="doctor-card-desc">
                 Consulting at the Akola clinic, Dr. Chaitanya Arvindkumar Murti conducts thorough in-person case-taking,
                 symptom modality analysis, and structured follow-up evaluations for patients across Maharashtra and
@@ -202,24 +236,24 @@
                   <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
                   <circle cx="12" cy="10" r="3" />
                 </svg>
-                <span>Mankar Commercial Complex, Civil Lines, Akola</span>
+                <span>Mankar Commercial Complex, S.A. College Road, Civil Lines, Akola – 444001</span>
               </div>
               <div class="doctor-meta-row">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path
                     d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                 </svg>
-                <a href="tel:+919420794417"><strong>+91 9420794417</strong></a>
+                <a href="tel:+919420794417"><strong>+91 9420 794 417</strong></a>
               </div>
               <div class="doctor-meta-row">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <circle cx="12" cy="12" r="10" />
                   <polyline points="12 6 12 12 16 14" />
                 </svg>
-                <span>Mon–Sat: 10am–2pm &amp; 6pm–9pm (Sun Closed)</span>
+                <span>Mon–Sat: 10:00 AM – 2:00 PM &amp; 6:00 PM – 9:00 PM (Sunday Closed)</span>
               </div>
               <div class="doctor-card-actions">
-                <a href="appointment.html?branch=akola" class="btn btn-secondary btn-sm" style="width: 100%;">
+                <a href="appointment.html?branch=akola" class="btn btn-secondary btn-sm">
                   Book Akola Consultation
                 </a>
               </div>
@@ -229,7 +263,7 @@
       </div>
     </section>
 
-    <!-- INTEGRATED CLINICAL APPROACH & METHODOLOGY -->
+    <!-- 4. CLINICAL METHODOLOGY -->
     <section class="section section-white">
       <div class="container">
         <div class="section-header reveal-on-scroll">
@@ -296,7 +330,7 @@
       </div>
     </section>
 
-    <!-- The Consultation Journey -->
+    <!-- 5. THE CONSULTATION JOURNEY -->
     <section class="section section-light-sage">
       <div class="container heritage-grid">
         <div class="heritage-text-col reveal-on-scroll">
@@ -305,36 +339,30 @@
           <p class="lead">
             An initial homeopathic consultation differs substantially from a typical brief visit.
           </p>
-          <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem;">
-            <div
-              style="padding: 1.25rem; background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-sm);">
-              <h4 style="margin-bottom: 0.35rem; color: var(--color-primary-dark);">1. In-Depth History Review</h4>
-              <p style="font-size: 0.92rem; color: var(--color-muted-grey); margin: 0;">We explore your primary health
-                concerns, past medical history, family tendencies, and when symptoms first appeared.</p>
+          <div class="journey-list">
+            <div class="journey-card">
+              <h4>1. In-Depth History Review</h4>
+              <p>We explore your primary health concerns, past medical history, family tendencies, and when symptoms first appeared.</p>
             </div>
-            <div
-              style="padding: 1.25rem; background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-sm);">
-              <h4 style="margin-bottom: 0.35rem; color: var(--color-primary-dark);">2. Constitutional Analysis</h4>
-              <p style="font-size: 0.92rem; color: var(--color-muted-grey); margin: 0;">We assess your general physical
-                traits—reactions to weather, energy cycles, food preferences, and sleep rhythms.</p>
+            <div class="journey-card">
+              <h4>2. Constitutional Analysis</h4>
+              <p>We assess your general physical traits—reactions to weather, energy cycles, food preferences, and sleep rhythms.</p>
             </div>
-            <div
-              style="padding: 1.25rem; background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-sm);">
-              <h4 style="margin-bottom: 0.35rem; color: var(--color-primary-dark);">3. Prescribing &amp; Direction</h4>
-              <p style="font-size: 0.92rem; color: var(--color-muted-grey); margin: 0;">Following case analysis,
-                individualized remedies and clear written instructions are provided alongside follow-up scheduling.</p>
+            <div class="journey-card">
+              <h4>3. Prescribing &amp; Direction</h4>
+              <p>Following case analysis, individualized remedies and clear written instructions are provided alongside follow-up scheduling.</p>
             </div>
           </div>
         </div>
 
         <div class="heritage-image-frame reveal-on-scroll">
-          <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=1000&q=80"
-            alt="Clinical remedy preparation and dispensing" width="520" height="440" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1000&q=80"
+            alt="Tasteful natural wellness and holistic care environment with serene botanical atmosphere" width="520" height="440" loading="lazy">
         </div>
       </div>
     </section>
 
-    <!-- Clinic Principles -->
+    <!-- 6. CLINICAL PRINCIPLES -->
     <section class="section section-white">
       <div class="container">
         <div class="section-header reveal-on-scroll">
@@ -365,7 +393,7 @@
   </main>
 
   <!-- Footer -->
-    <footer class="site-footer">
+  <footer class="site-footer">
     <div class="footer-top">
       <div class="container footer-top-inner">
         <div class="footer-brand">
@@ -392,15 +420,17 @@
           <div class="footer-col">
             <h5>Bengaluru Clinic</h5>
             <p><strong>Dr. Sudhir Lohia</strong></p>
-            <p>Pashmina Water Front, T03, 25-D, Old Madras Road, Battarahalli, Bengaluru &ndash; 560049</p>
+            <p>Pashmina Water Front, Tower 3, 25D, Old Madras Road, Battarahalli, Bengaluru &ndash; 560049</p>
             <a href="tel:+919422161321">+91 942 216 1321</a>
+            <a href="mailto:lohiashomoeopathy@gmail.com" style="display:block; margin-top: 0.25rem; font-size: 0.85rem;">lohiashomoeopathy@gmail.com</a>
             <small>Mon&ndash;Sat: 10 AM&ndash;1 PM &amp; 4&ndash;6 PM &middot; Sun Closed</small>
           </div>
           <div class="footer-col">
             <h5>Akola Clinic</h5>
             <p><strong>Dr. Chaitanya Arvindkumar Murti</strong></p>
-            <p>Mankar Commercial Complex, S.A. College Road, Civil Lines, Akola &ndash; 444001</p>
+            <p>Mankar Commercial Complex, S.A. College Road, Civil Lines, Akola &ndash; 444001, Maharashtra</p>
             <a href="tel:+919420794417">+91 942 079 4417</a>
+            <a href="mailto:lohiashomoeopathy@gmail.com" style="display:block; margin-top: 0.25rem; font-size: 0.85rem;">lohiashomoeopathy@gmail.com</a>
             <small>Mon&ndash;Sat: 10 AM&ndash;2 PM &amp; 6&ndash;9 PM &middot; Sun Closed</small>
           </div>
         </div>
@@ -419,7 +449,8 @@
       <path d="m18 15-6-6-6 6" />
     </svg>
   </button>
-    <script src="js/branches.js"></script>
+
+  <script src="js/branches.js"></script>
   <script src="js/appointment.js"></script>
   <script src="js/main.js"></script>
 </body>

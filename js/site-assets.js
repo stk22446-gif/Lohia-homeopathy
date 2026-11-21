@@ -17,9 +17,9 @@ const SITE_ASSETS = {
 
   // 1. Doctor Photographs & Profiles
   // --------------------------------------------------------------------------
-  // Currently configured with professional neutral medical silhouette placeholders.
-  // When official studio/clinic portraits of the doctors are available, update
-  // the `imageUrl` fields below and set `isPlaceholder` to false.
+  // Dr. Sudhir Lohia uses a professional neutral silhouette reference placeholder
+  // pending official studio portrait.
+  // Dr. Chaitanya Arvindkumar Murti uses his authentic consulting doctor photograph.
   doctors: {
     // Doctor 1: Dr. Sudhir Lohia (Bengaluru Branch)
     drSudhirLohia: {
@@ -27,14 +27,14 @@ const SITE_ASSETS = {
       title: "Homoeopath & Health Care Consultant",
       branch: "Bengaluru Branch",
       city: "Bengaluru, Karnataka",
-      address: "Pashmina Water Front, T03, 25-D, Old Madras Road, Battarahalli, Bengaluru – 560049",
+      address: "Pashmina Water Front, Tower 3, 25D, Old Madras Road, Battarahalli, Bengaluru – 560049",
       phone: "+91 9422 161 321",
       phoneRaw: "+919422161321",
       whatsapp: "919422161321",
       schedule: "Mon–Sat: 10:00 AM – 1:00 PM & 4:00 PM – 6:00 PM (Sunday Closed)",
       isPlaceholder: true,
       imageUrl: "assets/images/doctor-placeholder-lohia.svg",
-      imageAlt: "Dr. Sudhir Lohia — Professional Profile Placeholder (Temporary reference image, official photograph pending)"
+      imageAlt: "Dr. Sudhir Lohia — Professional Profile Placeholder (Temporary reference image, official portrait pending)"
     },
 
     // Doctor 2: Dr. Chaitanya Arvindkumar Murti (Akola Branch)
@@ -48,59 +48,37 @@ const SITE_ASSETS = {
       phoneRaw: "+919420794417",
       whatsapp: "919420794417",
       schedule: "Mon–Sat: 10:00 AM – 2:00 PM & 6:00 PM – 9:00 PM (Sunday Closed)",
-      isPlaceholder: true,
-      imageUrl: "assets/images/doctor-placeholder-murti.svg",
-      imageAlt: "Dr. Chaitanya Arvindkumar Murti — Professional Profile Placeholder (Temporary reference image, official photograph pending)"
+      isPlaceholder: false,
+      imageUrl: "https://res.cloudinary.com/mgkpr2it/image/upload/v1795217578/download.jpg",
+      imageAlt: "Dr. Chaitanya Arvindkumar Murti — Consulting Homoeopath at Lohia's Homoeopathy"
     }
   },
 
   // 2. Homeopathic Medicine Illustrative Reference Imagery
   // --------------------------------------------------------------------------
-  // Illustrative reference showing clean consultation desk, homeopathic globules,
-  // and small medicine vials under soft natural lighting.
-  // Note: This is labeled as illustrative reference imagery, not actual clinic stock.
+  // Tasteful illustrative imagery of homeopathic globules and small medicine bottles
+  // on a clean consultation table under natural lighting.
+  // Physical clinic interior, reception, and exterior photography is intentionally omitted
+  // per the clinic owner's directive to keep presentation modest, authentic, and focused on healthcare care.
   medicineReference: {
     imageUrl: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=1200&q=80",
-    imageAlt: "Illustrative reference photograph — Homeopathic globules and small medicine vials on consultation table with soft natural lighting",
-    badgeLabel: "Illustrative Reference Photograph",
+    imageAlt: "Tasteful homeopathic globules and consultation medicine vials under soft natural lighting",
+    badgeLabel: "Classical Homoeopathic Remedies",
     captionTitle: "Homeopathic Globules & Consultation Remedies",
-    captionSubtitle: "Representative reference imagery · Not actual clinic stock",
+    captionSubtitle: "Dispensed exclusively for registered patients · Since 1992",
     isIllustrative: true
   },
 
-  // 3. Akola Branch Actual Photographs
+  // 3. Clinic Space Imagery Policy
   // --------------------------------------------------------------------------
-  // Authentic photographs of the Akola clinic facilities.
-  akolaClinicPhotos: [
-    {
-      id: "akola-entrance",
-      title: "Akola Clinic Entrance & Building Signboard",
-      subtitle: "Civil Lines, S.A. College Road, Akola",
-      url: "https://res.cloudinary.com/mgkpr2it/image/upload/v1795217665/4bece18e-454e-4bdf-8f9c-175ee4e5244e.jpg",
-      alt: "Lohia's Homoeopathy Clinic Akola — Entrance & Building Signboard"
-    },
-    {
-      id: "akola-consultation",
-      title: "Doctor's Consultation Chamber & Dispensary Shelving",
-      subtitle: "Classical homoeopathic remedy collections",
-      url: "https://res.cloudinary.com/mgkpr2it/image/upload/v1795217607/9a7d252e-a91c-4ee1-b417-8e0480e630a8.jpg",
-      alt: "Doctor's Desk & Homoeopathic Dispensary Shelf at Lohia's Homoeopathy"
-    },
-    {
-      id: "akola-reception",
-      title: "Reception & Patient Waiting Lounge",
-      subtitle: "Quiet, calm environment for patient consultation",
-      url: "https://res.cloudinary.com/mgkpr2it/image/upload/v1795217598/abbc0d1e-0992-4af4-81b8-65cfae8f9a5c.jpg",
-      alt: "Lohia's Homoeopathy Clinic Reception & Patient Waiting Area"
-    },
-    {
-      id: "akola-consultant",
-      title: "Dr. Chaitanya Arvindkumar Murti",
-      subtitle: "Consulting Homoeopath · Akola Branch",
-      url: "https://res.cloudinary.com/mgkpr2it/image/upload/v1795217578/download.jpg",
-      alt: "Dr. Chaitanya Arvindkumar Murti at Lohia's Homoeopathy"
-    }
-  ],
+  // In accordance with clinic owner instructions:
+  // Clinic interior, exterior, reception, and consultation room photographs are omitted.
+  // The website focuses purely on doctors, constitutional consultation, healthcare guidance,
+  // and direct branch assistance.
+  clinicSpacePolicy: {
+    displayPhysicalGalleries: false,
+    focus: "doctors_consultation_guidance"
+  },
 
   // 4. Patient Feedback Configuration
   // --------------------------------------------------------------------------

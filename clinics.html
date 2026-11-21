@@ -47,28 +47,38 @@
     </div>
   </header>
 
-  <div class="mobile-backdrop" id="mobileBackdrop"></div>
-  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
-    <div class="mobile-drawer-top">
-      <a href="index.html" class="brand">
-        <img src="https://res.cloudinary.com/mgkpr2it/image/upload/v1795220510/fdc22116-5a44-416c-9e67-ab1f7a3a4d89.png" alt="Lohia's Homoeopathy" class="brand-logo" width="130" height="42">
-      </a>
-      <button type="button" class="mobile-close" id="mobileClose" aria-label="Close menu">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop"></div>
+  <aside class="mobile-editorial-drawer" id="mobileEditorialDrawer" aria-label="Mobile Navigation">
+    <div>
+      <div class="drawer-head">
+        <a href="index.html">
+          <img
+            src="https://res.cloudinary.com/mgkpr2it/image/upload/v1795220510/fdc22116-5a44-416c-9e67-ab1f7a3a4d89.png"
+            alt="Lohia's Homoeopathy" class="header-logo-img" width="140" height="42">
+        </a>
+        <button type="button" class="drawer-close" id="mobileDrawerClose" aria-label="Close menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+
+      <nav class="drawer-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About &amp; Doctors</a>
+        <a href="clinics.html" class="active">Our Clinics</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
-    <nav class="mobile-nav">
-      <a href="index.html" class="mobile-nav-link">Home</a>
-      <a href="about.html" class="mobile-nav-link">About</a>
-      <a href="clinics.html" class="mobile-nav-link active">Our Clinics</a>
-      <a href="contact.html" class="mobile-nav-link">Contact</a>
-    </nav>
-    <div class="mobile-drawer-foot">
-      <a href="appointment.html" class="btn-primary-full">Book Appointment</a>
-      <div class="mobile-contact-line">
-        <a href="tel:+919422161321">+91 9422 161 321</a>
-        <span>&middot;</span>
-        <a href="tel:+919420794417">+91 9420 794 417</a>
+
+    <div class="drawer-foot">
+      <a href="appointment.html" class="btn-drawer-cta">Book Consultation</a>
+      <div class="branch-nums">
+        <div><strong>Bengaluru:</strong> <a href="tel:+919422161321" style="color: inherit; text-decoration: none;">+91 9422 161 321</a></div>
+        <div><strong>Akola:</strong> <a href="tel:+919420794417" style="color: inherit; text-decoration: none;">+91 9420 794 417</a></div>
+        <div class="drawer-timing-note">Bengaluru: Mon–Sat 10am–1pm &amp; 4pm–6pm · Sun Closed</div>
       </div>
     </div>
   </aside>
@@ -113,7 +123,7 @@
                       <svg class="clinic-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
                       <div class="clinic-info-text">
                         <strong>Full Address</strong>
-                        <span>Pashmina Water Front, T03, 25-D, Old Madras Road, Battarahalli, Bengaluru, Karnataka – 560049.</span>
+                        <span>Pashmina Water Front, Tower 3, 25D, Old Madras Road, Battarahalli, Bengaluru, Karnataka – 560049.</span>
                       </div>
                     </div>
 
@@ -129,7 +139,7 @@
                       <svg class="clinic-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                       <div class="clinic-info-text">
                         <strong>Email Address</strong>
-                        <a href="mailto:hello@lohiashomoeopathy.com">hello@lohiashomoeopathy.com</a>
+                        <a href="mailto:lohiashomoeopathy@gmail.com">lohiashomoeopathy@gmail.com</a>
                       </div>
                     </div>
 
@@ -190,6 +200,14 @@
                     </div>
 
                     <div class="clinic-info-item">
+                      <svg class="clinic-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                      <div class="clinic-info-text">
+                        <strong>Email Address</strong>
+                        <a href="mailto:lohiashomoeopathy@gmail.com">lohiashomoeopathy@gmail.com</a>
+                      </div>
+                    </div>
+
+                    <div class="clinic-info-item">
                       <svg class="clinic-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                       <div class="clinic-info-text">
                         <strong>Clinic Timings</strong>
@@ -222,42 +240,17 @@
       </div>
     </section>
 
-    <!-- SECTION 07: AKOLA CLINIC GALLERY CAROUSEL -->
+    <!-- SECTION 07: ATTENTIVE HEALTHCARE CONSULTATION SINCE 1992 -->
     <section class="section section-light-sage">
-      <div class="container">
-        <div class="section-header text-center reveal-on-scroll">
-          <span class="eyebrow">Akola Branch</span>
-          <h2>Inside Our Akola Clinic</h2>
-          <p>Photographs of our consultation rooms and clinic environment. Carousel advances automatically every 3 seconds.</p>
-        </div>
-
-        <div class="clinic-gallery-carousel reveal-on-scroll" aria-label="Akola Clinic Image Gallery">
-          <div class="carousel-track">
-            <!-- 4 Clinic Photographs -->
-            <div class="carousel-slide">
-              <img src="https://res.cloudinary.com/mgkpr2it/image/upload/v1795217665/4bece18e-454e-4bdf-8f9c-175ee4e5244e.jpg" 
-                   alt="Lohia's Homoeopathy Clinic Akola photograph 1" loading="lazy">
-            </div>
-            <div class="carousel-slide">
-              <img src="https://res.cloudinary.com/mgkpr2it/image/upload/v1795217607/9a7d252e-a91c-4ee1-b417-8e0480e630a8.jpg" 
-                   alt="Lohia's Homoeopathy Clinic Akola photograph 2" loading="lazy">
-            </div>
-            <div class="carousel-slide">
-              <img src="https://res.cloudinary.com/mgkpr2it/image/upload/v1795217598/abbc0d1e-0992-4af4-81b8-65cfae8f9a5c.jpg" 
-                   alt="Lohia's Homoeopathy Clinic Akola photograph 3" loading="lazy">
-            </div>
-            <div class="carousel-slide">
-              <img src="https://res.cloudinary.com/mgkpr2it/image/upload/v1795217578/download.jpg" 
-                   alt="Lohia's Homoeopathy Clinic Akola photograph 4" loading="lazy">
-            </div>
-          </div>
-
-          <div class="carousel-indicators" role="tablist">
-            <button type="button" class="carousel-dot active" role="tab" aria-selected="true" aria-label="Go to slide 1"></button>
-            <button type="button" class="carousel-dot" role="tab" aria-selected="false" aria-label="Go to slide 2"></button>
-            <button type="button" class="carousel-dot" role="tab" aria-selected="false" aria-label="Go to slide 3"></button>
-            <button type="button" class="carousel-dot" role="tab" aria-selected="false" aria-label="Go to slide 4"></button>
-          </div>
+      <div class="container text-center reveal-on-scroll" style="max-width: 820px; margin: 0 auto;">
+        <span class="eyebrow">Attentive Care Since 1992</span>
+        <h2>Quiet, Unhurried Consultation Spaces</h2>
+        <p style="font-size: 1.05rem; line-height: 1.8; color: var(--muted); margin-bottom: 2rem;">
+          Both our Bengaluru and Akola branches are modest, quiet clinical consulting environments designed entirely for thorough constitutional case evaluation. We do not operate high-volume retail counters or crowded waiting halls. Every patient is attended to individually by scheduled prior appointment.
+        </p>
+        <div class="btn-group" style="justify-content: center;">
+          <a href="appointment.html" class="btn btn-primary">Book Consultation</a>
+          <a href="contact.html" class="btn btn-secondary">Contact Desk Information</a>
         </div>
       </div>
     </section>
@@ -291,15 +284,17 @@
           <div class="footer-col">
             <h5>Bengaluru Clinic</h5>
             <p><strong>Dr. Sudhir Lohia</strong></p>
-            <p>Pashmina Water Front, T03, 25-D, Old Madras Road, Battarahalli, Bengaluru &ndash; 560049</p>
+            <p>Pashmina Water Front, Tower 3, 25D, Old Madras Road, Battarahalli, Bengaluru &ndash; 560049</p>
             <a href="tel:+919422161321">+91 942 216 1321</a>
+            <a href="mailto:lohiashomoeopathy@gmail.com" style="display:block; margin-top: 0.25rem; font-size: 0.85rem;">lohiashomoeopathy@gmail.com</a>
             <small>Mon&ndash;Sat: 10 AM&ndash;1 PM &amp; 4&ndash;6 PM &middot; Sun Closed</small>
           </div>
           <div class="footer-col">
             <h5>Akola Clinic</h5>
             <p><strong>Dr. Chaitanya Arvindkumar Murti</strong></p>
-            <p>Mankar Commercial Complex, S.A. College Road, Civil Lines, Akola &ndash; 444001</p>
+            <p>Mankar Commercial Complex, S.A. College Road, Civil Lines, Akola &ndash; 444001, Maharashtra</p>
             <a href="tel:+919420794417">+91 942 079 4417</a>
+            <a href="mailto:lohiashomoeopathy@gmail.com" style="display:block; margin-top: 0.25rem; font-size: 0.85rem;">lohiashomoeopathy@gmail.com</a>
             <small>Mon&ndash;Sat: 10 AM&ndash;2 PM &amp; 6&ndash;9 PM &middot; Sun Closed</small>
           </div>
         </div>
