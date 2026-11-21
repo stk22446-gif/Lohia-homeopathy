@@ -1,0 +1,364 @@
+/* ==========================================================================
+   LOHIA'S HOMOEOPATHY – RESPONSIVE SYSTEM
+   ========================================================================== */
+
+/* ── LARGE DESKTOP (≤ 1280px) ─────────────────────────────────────────────── */
+@media (max-width: 1280px) {
+  .hero-text {
+    padding-left: 2.5rem;
+    padding-right: 3rem;
+  }
+  .appt-panel { padding-left: 2.5rem; }
+  .appt-form-wrap { padding-right: 2.5rem; }
+  .heritage-layout { grid-template-columns: 260px 1fr; }
+  .heritage-year { font-size: clamp(4.5rem, 10vw, 9rem); }
+}
+
+/* ── TABLET LANDSCAPE (≤ 1024px) ─────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  :root {
+    --sp-xl: 3.75rem;
+    --sp-2xl: 5.5rem;
+  }
+
+  /* Header */
+  .nav-menu { gap: 1.75rem; }
+  .header-inner { padding-inline: 1.75rem; }
+
+  /* Hero: stack on tablet */
+  .hero-layout {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .hero-text {
+    padding: 4rem 2rem 3rem;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    order: 1;
+  }
+  .hero-visual { order: 2; }
+  .hero-img-wrap { min-height: 420px; }
+
+  /* Heritage */
+  .heritage-layout { grid-template-columns: 1fr; }
+  .heritage-year-col { position: static; display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 2rem; }
+  .heritage-year { font-size: clamp(4rem, 12vw, 8rem); margin-bottom: 0; }
+  .heritage-pillars { grid-template-columns: 1fr 1fr; }
+
+  /* Doctors */
+  .doctor-row-inner {
+    grid-template-columns: 100px 1fr;
+    gap: 2rem;
+  }
+  .doctor-meta {
+    grid-column: 1 / -1;
+    border-left: none;
+    border-top: 1px solid var(--border);
+    padding-left: 0; padding-top: 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .doctor-cta { grid-column: 1 / -1; }
+
+  /* Approach */
+  .approach-layout { grid-template-columns: 1fr; }
+  .approach-intro { max-width: 100%; }
+
+  /* Gallery */
+  .gallery-carousel { height: 400px; }
+
+  /* Branches */
+  .branch-panel-grid { grid-template-columns: 1fr; }
+  .branch-map { height: 300px; }
+
+  /* Appointment */
+  .appt-layout { grid-template-columns: 1fr; }
+  .appt-panel {
+    padding: 3.5rem 2rem;
+    order: 2;
+  }
+  .appt-form-wrap {
+    padding: 3.5rem 2rem;
+    order: 1;
+  }
+
+  /* Contact */
+  .contact-strip-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .contact-strip-cards { grid-template-columns: 1fr 1fr; }
+  .cs-card:nth-child(2) { border-right: none; }
+  .cs-card:nth-child(3) { border-top: 1px solid var(--border); border-right: none; grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .cs-card:nth-child(3) .cs-city { grid-column: 1 / -1; }
+  .cs-card:nth-child(3) .cs-addr { grid-column: 1 / -1; }
+
+  /* Footer */
+  .footer-top-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .footer-cols { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ── TABLET PORTRAIT (≤ 768px) ───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  :root {
+    --sp-xl: 3rem;
+    --sp-2xl: 4.5rem;
+  }
+
+  /* Header */
+  .nav-menu { display: none; }
+  .btn-appt { display: none; }
+  .mobile-toggle { display: flex; }
+
+  /* Hero */
+  .hero-heading { font-size: clamp(2.6rem, 8vw, 4rem); }
+  .hero-body { font-size: 1rem; }
+  .hero-img-wrap { min-height: 360px; }
+  .hero-float-tag { left: 1.25rem; bottom: 1.25rem; padding: 0.75rem 1.1rem; }
+  .hft-loc { font-size: 1rem; }
+
+  /* Heritage */
+  .heritage-year { font-size: clamp(3.5rem, 16vw, 7rem); }
+  .heritage-pillars { grid-template-columns: 1fr; gap: 1.5rem; }
+
+  /* Doctors */
+  .section-title { font-size: clamp(2rem, 7vw, 3rem); }
+  .doctor-row-inner {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .doctor-id { flex-direction: row; align-items: center; gap: 1rem; }
+  .doctor-index { font-size: 2.5rem; }
+  .doctor-meta { grid-template-columns: 1fr; }
+
+  /* Approach */
+  .approach-heading { font-size: clamp(1.9rem, 7vw, 2.8rem); }
+  .approach-item { grid-template-columns: 50px 1fr; }
+
+  /* Gallery */
+  .gallery-header { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  .gallery-note { text-align: left; max-width: 100%; }
+  .gallery-carousel { height: 300px; }
+
+  /* Branches */
+  .branch-tabs { display: flex; width: 100%; }
+  .branch-tab { flex: 1; padding: 0.85rem 1rem; }
+  .tab-city { font-size: 1rem; }
+
+  /* Subpages: Clinics discovery, Doctors, Approach, Contact */
+  .clinic-discovery-grid {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+    padding: 2rem 1.5rem;
+  }
+  .clinic-media-frame {
+    min-height: 280px;
+  }
+  .btn-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+  .btn-group .btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+  .branch-selector-header {
+    gap: 0.5rem;
+  }
+  .branch-toggle-btn {
+    font-size: 1.05rem;
+    padding: 0.65rem 1rem;
+  }
+  .doctors-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+  .doctor-card {
+    padding: 2rem 1.5rem;
+  }
+  .approach-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .approach-item {
+    padding: 1.5rem 1.25rem;
+  }
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+  .contact-branch-card {
+    padding: 2rem 1.5rem;
+  }
+
+  /* Appointment form */
+  .appointment-card {
+    padding: 2rem 1.5rem;
+  }
+  .form-row, .form-grid { grid-template-columns: 1fr; }
+  .form-branch-picker { grid-template-columns: 1fr 1fr; }
+
+  /* Contact */
+  .contact-strip-cards { grid-template-columns: 1fr; }
+  .cs-card { border-right: none; border-bottom: 1px solid var(--border); }
+  .cs-card:last-child { border-bottom: none; }
+  .cs-card:nth-child(3) { grid-column: auto; display: flex; }
+
+  /* Footer */
+  .footer-cols { grid-template-columns: 1fr 1fr; gap: 2rem; }
+
+  /* Marquee: reduce speed */
+  .marquee-track { animation-duration: 20s; }
+}
+
+/* ── MOBILE (≤ 480px) ────────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  :root { --sp-xl: 2.5rem; --sp-2xl: 3.75rem; }
+
+  .container { padding-inline: 1.25rem; }
+  .header-inner { padding-inline: 1.25rem; }
+
+  .brand-logo { height: 42px; max-width: 160px; }
+
+  /* Hero */
+  .hero-text { padding: 2.75rem 1.25rem 2.25rem; }
+  .hero-heading { font-size: clamp(2.2rem, 10vw, 3rem); }
+  .hero-actions { flex-direction: column; gap: 0.75rem; }
+  .hero-actions .btn-dark,
+  .hero-actions .btn-outline-dark { width: 100%; text-align: center; justify-content: center; }
+
+  /* Gallery */
+  .gallery-carousel { height: 240px; }
+  .gallery-controls { gap: 0.75rem; }
+  .gallery-arrow { width: 34px; height: 34px; }
+
+  /* Branches */
+  .branch-tab { padding: 0.7rem 0.75rem; }
+  .tab-city { font-size: 0.9rem; }
+  .branch-info-list li { grid-template-columns: 75px 1fr; gap: 0.5rem; }
+  .branch-actions { flex-direction: column; }
+  .branch-actions .btn-dark, .branch-actions .btn-ghost { width: 100%; text-align: center; justify-content: center; }
+
+  /* Subpages */
+  .clinic-discovery-grid {
+    padding: 1.75rem 1.25rem;
+    gap: 1.75rem;
+  }
+  .clinic-media-frame {
+    min-height: 240px;
+  }
+  .clinic-media-frame iframe {
+    min-height: 240px;
+  }
+  .branch-toggle-btn {
+    font-size: 0.98rem;
+    padding: 0.5rem 0.75rem;
+  }
+  .doctor-card {
+    padding: 1.75rem 1.25rem;
+  }
+  .doctor-card-name {
+    font-size: 1.4rem;
+  }
+  .doctor-card-actions .btn {
+    width: 100%;
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .contact-branch-card {
+    padding: 1.75rem 1.25rem;
+  }
+  .appointment-card {
+    padding: 1.75rem 1.25rem;
+  }
+
+  /* Form elements: 16px to prevent iOS auto-zoom & 48px minimum touch height */
+  input, select, textarea, .form-control {
+    font-size: 16px !important;
+    min-height: 48px;
+  }
+  .form-branch-picker {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .form-branch-btn {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .btn-submit {
+    min-height: 48px;
+  }
+
+  /* Doctors */
+  .doctor-row-inner { padding: 1.75rem 1.25rem; }
+
+  /* Appointment */
+  .appt-panel { padding: 2.5rem 1.25rem; }
+  .appt-form-wrap { padding: 2.5rem 1.25rem; }
+
+  /* Footer */
+  .footer-cols { grid-template-columns: 1fr; }
+  .footer-top-inner,
+  .footer-bottom-inner { padding-inline: 1.25rem; }
+  .footer-bottom-inner { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+
+  /* Floating buttons with safe-area support */
+  .wa-float {
+    bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
+    right: 1.25rem;
+    width: 52px;
+    height: 52px;
+    min-width: 48px;
+    min-height: 48px;
+  }
+  .back-to-top {
+    bottom: calc(5rem + env(safe-area-inset-bottom, 0px));
+    right: 1.25rem;
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+/* ── COMPACT MOBILE (≤ 390px) ────────────────────────────────────────────── */
+@media (max-width: 390px) {
+  .brand-logo { height: 38px; max-width: 140px; }
+  .footer-logo { height: 38px; }
+  .hero-heading { font-size: 2.1rem; }
+  .heritage-year { font-size: 3rem; }
+}
+
+/* ── ULTRA-COMPACT MOBILE (≤ 360px) ──────────────────────────────────────── */
+@media (max-width: 360px) {
+  .container { padding-inline: 1rem; }
+  .header-inner { padding-inline: 1rem; }
+  .brand-logo { height: 36px; max-width: 130px; }
+  .clinic-discovery-grid,
+  .contact-branch-card,
+  .doctor-card,
+  .appointment-card {
+    padding: 1.25rem 0.85rem;
+  }
+  .clinic-media-frame,
+  .clinic-media-frame iframe {
+    min-height: 200px;
+  }
+  .branch-toggle-btn {
+    font-size: 0.92rem;
+    padding: 0.45rem 0.55rem;
+  }
+}
+
+/* ── REDUCED MOTION ───────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .marquee-track { animation: none; }
+  .gallery-track { transition: none !important; }
+}

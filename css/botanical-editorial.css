@@ -1,0 +1,2411 @@
+/* ==========================================================================
+   LOHIA'S HOMOEOPATHY – MODERN BOTANICAL EDITORIAL
+   Design Concept: Botanical Luxury · Editorial Clarity · Established 1992
+   ========================================================================== */
+
+/* ── COLOR SYSTEM & TOKENS ───────────────────────────────────────────────── */
+:root {
+  /* Official Brand Palette (#07501F, #174B2B, #82B918, #F8F7F0, #252B27) */
+  --c-deep-green: #07501F;
+  --c-forest-green: #174B2B;
+  --c-lime: #82B918;
+  --c-lime-hover: #92cd1d;
+  --c-lime-dark: #6e9d14;
+  --c-lime-bright: #96d61d;
+  --c-lime-soft: #F2F8E7;
+  --c-lime-glow: rgba(130, 185, 24, 0.32);
+  --c-lime-subtle: rgba(130, 185, 24, 0.12);
+
+  --c-warm-white: #F8F7F0;
+  --c-charcoal: #252B27;
+
+  /* Botanical Greens */
+  --c-botanical-black: #0A1610;
+  --c-botanical-deep: #07501F;
+  --c-botanical-forest: #174B2B;
+  --c-botanical-pine: #1F4530;
+  --c-botanical-moss: #2E5C41;
+  --c-botanical-sage: #6B8B74;
+  --c-botanical-mist: #DDE7DF;
+
+  /* Warm Linen & Ivory Neutrals */
+  --c-ivory: #F8F7F0;
+  --c-ivory-warm: #F0EDE2;
+  --c-ivory-sand: #E6E1D3;
+  --c-ivory-border: #D8D2C2;
+  --c-white: #FFFFFF;
+
+  /* Text & Ink */
+  --c-ink: #18201B;
+  --c-ink-soft: #252B27;
+  --c-ink-muted: #596B60;
+
+  /* Typography */
+  --font-serif: "Fraunces", "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* Spatial Scale */
+  --sp-2xs: 0.35rem;
+  --sp-xs: 0.65rem;
+  --sp-sm: 1rem;
+  --sp-md: 1.75rem;
+  --sp-lg: 3rem;
+  --sp-xl: 5rem;
+  --sp-2xl: 8rem;
+
+  /* Layout */
+  --container-max: 1300px;
+  --container-wide: 1440px;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+
+  /* Transitions */
+  --tr-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --tr-smooth: 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  --tr-bounce: 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ── RESET & BASE ────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--c-ink-soft);
+  background-color: var(--c-ivory);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Subtle botanical paper grain effect via SVG data-uri */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+  z-index: 9999;
+}
+
+img, picture, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all var(--tr-fast);
+}
+
+button, input, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+.skip-link {
+  position: absolute;
+  top: -120px;
+  left: 1.5rem;
+  background: var(--c-botanical-deep);
+  color: var(--c-lime);
+  padding: 0.75rem 1.5rem;
+  z-index: 10000;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border: 1px solid var(--c-lime);
+  transition: top var(--tr-fast);
+}
+.skip-link:focus {
+  top: 1.5rem;
+}
+
+/* ── EDITORIAL TYPOGRAPHY ────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-serif);
+  color: var(--c-botanical-deep);
+  line-height: 1.12;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(3.2rem, 6.2vw, 5.4rem);
+  font-weight: 400;
+}
+
+h2 {
+  font-size: clamp(2.4rem, 4.4vw, 3.8rem);
+  font-weight: 400;
+}
+
+h3 {
+  font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+}
+
+h4 {
+  font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+}
+
+em, .italic {
+  font-style: italic;
+  font-family: var(--font-serif);
+  font-weight: 400;
+}
+
+.text-lime {
+  color: var(--c-lime);
+}
+
+.text-muted {
+  color: var(--c-ink-muted);
+}
+
+/* Editorial Bracketed Tags */
+.editorial-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--c-botanical-forest);
+  margin-bottom: 1.25rem;
+}
+
+.editorial-tag::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--c-lime);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--c-lime);
+}
+
+.editorial-tag-light {
+  color: var(--c-lime);
+}
+.editorial-tag-light::before {
+  background: var(--c-lime);
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: 2rem;
+}
+
+.container-wide {
+  width: 100%;
+  max-width: var(--container-wide);
+  margin-inline: auto;
+  padding-inline: 2rem;
+}
+
+/* ── BUTTONS (MODERN BOTANICAL) ─────────────────────────────────────────── */
+.btn-botanical {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.95rem 2rem;
+  background-color: var(--c-botanical-deep);
+  color: var(--c-white);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--c-botanical-deep);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all var(--tr-fast);
+}
+
+.btn-botanical::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--c-lime);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--tr-fast);
+}
+
+.btn-botanical:hover {
+  background-color: var(--c-botanical-forest);
+  border-color: var(--c-botanical-forest);
+  color: var(--c-white);
+  transform: translateY(-2px);
+}
+
+.btn-botanical:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.btn-lime {
+  background-color: var(--c-lime);
+  color: var(--c-botanical-black);
+  border-color: var(--c-lime);
+  font-weight: 700;
+}
+
+.btn-lime:hover {
+  background-color: var(--c-lime-bright);
+  border-color: var(--c-lime-bright);
+  color: var(--c-botanical-black);
+  box-shadow: 0 4px 20px var(--c-lime-glow);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.85rem;
+  background: transparent;
+  color: var(--c-botanical-deep);
+  border: 1px solid var(--c-ivory-border);
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  transition: all var(--tr-fast);
+}
+
+.btn-outline:hover {
+  border-color: var(--c-botanical-deep);
+  background: rgba(18, 40, 29, 0.04);
+  color: var(--c-botanical-deep);
+}
+
+.btn-outline-white {
+  color: var(--c-white);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.btn-outline-white:hover {
+  border-color: var(--c-lime);
+  color: var(--c-lime);
+  background: rgba(152, 212, 55, 0.06);
+}
+
+/* ==========================================================================
+   01. TOP BOTANICAL STRIP (LIVE DESK STATUS)
+   ========================================================================== */
+.top-desk-strip {
+  background-color: var(--c-botanical-black);
+  color: #C8D5CB;
+  font-size: 0.76rem;
+  letter-spacing: 0.03em;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  z-index: 1001;
+}
+
+.top-desk-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.top-desk-left, .top-desk-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.top-status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--c-lime);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+}
+
+.top-status-indicator .pulse-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--c-lime);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--c-lime);
+  animation: pulse-lime 2s infinite ease-in-out;
+}
+
+@keyframes pulse-lime {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+.top-desk-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #B4C4B8;
+  font-weight: 500;
+}
+
+.top-desk-item strong {
+  color: var(--c-white);
+  font-weight: 600;
+}
+
+.top-desk-item a:hover {
+  color: var(--c-lime);
+}
+
+/* ==========================================================================
+   02. BRANDED EDITORIAL NAVIGATION HEADER
+   ========================================================================== */
+.botanical-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(248, 247, 240, 0.98);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(7, 80, 31, 0.1);
+  z-index: 1000;
+  height: 88px;
+  display: flex;
+  align-items: center;
+  transition: height var(--tr-fast), background var(--tr-fast), box-shadow var(--tr-fast);
+}
+
+.botanical-header.is-scrolled {
+  height: 72px;
+  background: rgba(248, 247, 240, 0.98);
+  box-shadow: 0 4px 20px rgba(7, 80, 31, 0.08);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.header-logo-img {
+  height: 60px;
+  width: auto;
+  max-width: 240px;
+  object-fit: contain;
+  display: block;
+  background: transparent;
+  transition: height var(--tr-fast), transform var(--tr-fast);
+}
+
+.botanical-header.is-scrolled .header-logo-img {
+  height: 50px;
+}
+
+.header-brand:hover .header-logo-img {
+  transform: scale(1.02);
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+}
+
+.header-nav-link {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--c-charcoal);
+  letter-spacing: 0.01em;
+  position: relative;
+  padding: 0.4rem 0;
+}
+
+.header-nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2.5px;
+  background: var(--c-lime);
+  transition: width var(--tr-fast);
+}
+
+.header-nav-link:hover {
+  color: var(--c-deep-green);
+}
+
+.header-nav-link:hover::after,
+.header-nav-link.active::after {
+  width: 100%;
+}
+
+.header-nav-link.active {
+  color: var(--c-deep-green);
+}
+
+.header-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-shrink: 0;
+}
+
+.header-phone-quick {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  line-height: 1.25;
+}
+
+.header-phone-quick span {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--c-ink-muted);
+  font-weight: 700;
+}
+
+.header-phone-quick a {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--c-deep-green);
+}
+
+.header-phone-quick a:hover {
+  color: var(--c-lime);
+}
+
+.header-cta-btn {
+  padding: 0.75rem 1.45rem;
+  font-size: 0.86rem;
+  font-weight: 700;
+  background-color: var(--c-lime);
+  color: #0A1610;
+  border-color: var(--c-lime);
+  border-radius: var(--radius-xs);
+  box-shadow: 0 3px 12px rgba(130, 185, 24, 0.28);
+}
+
+.header-cta-btn:hover {
+  background-color: var(--c-lime-hover);
+  border-color: var(--c-lime-hover);
+  color: #0A1610;
+  transform: translateY(-1px);
+}
+
+/* Mobile Toggle */
+.mobile-nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid rgba(7, 80, 31, 0.2);
+  padding: 0.55rem;
+  cursor: pointer;
+  border-radius: var(--radius-xs);
+  color: var(--c-deep-green);
+}
+
+/* Mobile Drawer */
+.mobile-editorial-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 320px;
+  max-width: 86vw;
+  height: 100vh;
+  background: var(--c-botanical-black);
+  color: var(--c-white);
+  z-index: 1100;
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: translateX(105%);
+  transition: transform var(--tr-smooth);
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.4);
+}
+
+.mobile-editorial-drawer.is-open {
+  transform: translateX(0);
+}
+
+.mobile-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 22, 16, 0.6);
+  backdrop-filter: blur(6px);
+  z-index: 1090;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--tr-fast);
+}
+
+.mobile-drawer-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.drawer-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.drawer-close {
+  background: none;
+  border: none;
+  color: var(--c-white);
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.drawer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.drawer-nav a {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  color: #DDE7DF;
+  transition: color var(--tr-fast);
+}
+
+.drawer-nav a.active, .drawer-nav a:hover {
+  color: var(--c-lime);
+}
+
+.drawer-foot {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.drawer-foot .branch-nums {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #9AB0A1;
+  margin-top: 1rem;
+}
+
+.drawer-foot .branch-nums strong {
+  color: var(--c-white);
+}
+
+/* ==========================================================================
+   03. HERO SECTION — BALANCED TWO-COLUMN EDITORIAL LAYOUT
+   ========================================================================== */
+.botanical-hero {
+  position: relative;
+  background-color: var(--c-warm-white);
+  padding: clamp(2.75rem, 5vw, 4.5rem) 0 clamp(3.25rem, 5.5vw, 4.75rem);
+  overflow: hidden;
+  border-bottom: 1px solid rgba(7, 80, 31, 0.08);
+}
+
+.hero-editorial-grid {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: clamp(2.5rem, 4.5vw, 4.5rem);
+  align-items: center;
+  position: relative;
+}
+
+.hero-editorial-lead {
+  position: relative;
+  z-index: 2;
+}
+
+/* Small Established Since 1992 Label */
+.hero-est-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.35rem 0.95rem;
+  background: rgba(130, 185, 24, 0.12);
+  border: 1px solid rgba(130, 185, 24, 0.35);
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--c-forest-green);
+  margin-bottom: 1.35rem;
+  width: fit-content;
+}
+
+.hero-est-badge .est-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--c-lime);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--c-lime);
+  flex-shrink: 0;
+}
+
+/* Two-Tone Headline Inspired by Official Brand Logo */
+.hero-headline {
+  font-family: var(--font-serif);
+  font-size: clamp(2.6rem, 4.3vw, 4.1rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  margin-bottom: 1.35rem;
+  max-width: 580px;
+}
+
+.hero-title-forest {
+  color: var(--c-deep-green);
+  display: block;
+}
+
+.hero-title-lime {
+  color: var(--c-lime);
+  display: block;
+}
+
+/* Narrative */
+.hero-narrative {
+  font-size: 1.06rem;
+  line-height: 1.72;
+  color: var(--c-charcoal);
+  max-width: 520px;
+  margin-bottom: 2.25rem;
+  font-weight: 400;
+}
+
+/* CTA Buttons */
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+}
+
+.btn-hero-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.92rem 2rem;
+  background-color: var(--c-lime);
+  color: #0A1610;
+  border: 1px solid var(--c-lime);
+  border-radius: var(--radius-xs);
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 16px rgba(130, 185, 24, 0.32);
+  transition: all var(--tr-fast);
+  cursor: pointer;
+}
+
+.btn-hero-primary:hover {
+  background-color: var(--c-lime-hover);
+  border-color: var(--c-lime-hover);
+  color: #0A1610;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(130, 185, 24, 0.45);
+}
+
+.btn-hero-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.92rem 1.85rem;
+  background: transparent;
+  color: var(--c-forest-green);
+  border: 1.5px solid rgba(7, 80, 31, 0.3);
+  border-radius: var(--radius-xs);
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 600;
+  transition: all var(--tr-fast);
+  cursor: pointer;
+}
+
+.btn-hero-secondary:hover {
+  border-color: var(--c-deep-green);
+  background: rgba(7, 80, 31, 0.06);
+  color: var(--c-deep-green);
+  transform: translateY(-2px);
+}
+
+/* Right Column: Large Dominant Medicine Image */
+.hero-image-column {
+  position: relative;
+  width: 100%;
+}
+
+.hero-image-frame {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #E8EBE5;
+  box-shadow: 0 16px 42px rgba(7, 80, 31, 0.12);
+  border: 1px solid rgba(7, 80, 31, 0.12);
+  aspect-ratio: 4 / 3.15;
+}
+
+.hero-dominant-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-image-frame:hover .hero-dominant-img {
+  transform: scale(1.025);
+}
+
+/* Subtle Image Caption */
+.hero-image-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(7, 80, 31, 0.92) 0%, rgba(7, 80, 31, 0.5) 65%, transparent 100%);
+  color: #FFFFFF;
+  padding: 2rem 1.5rem 1.15rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+}
+
+.hero-image-caption .caption-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--c-lime);
+  flex-shrink: 0;
+  box-shadow: 0 0 6px var(--c-lime);
+}
+
+.hero-image-caption .caption-text {
+  color: #F8F7F0;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   04. CONTINUOUS BOTANICAL MARQUEE STRIP
+   ========================================================================== */
+.botanical-marquee-strip {
+  background: var(--c-botanical-deep);
+  color: var(--c-white);
+  overflow: hidden;
+  padding: 1.1rem 0;
+  border-top: 1px solid rgba(152, 212, 55, 0.25);
+  border-bottom: 1px solid rgba(152, 212, 55, 0.25);
+}
+
+.marquee-content {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  white-space: nowrap;
+  animation: botanical-marquee 32s linear infinite;
+  width: max-content;
+}
+
+.marquee-content span {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #D3DFD6;
+}
+
+.marquee-sep {
+  color: var(--c-lime) !important;
+  font-size: 0.9rem;
+}
+
+@keyframes botanical-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-content { animation: none; }
+}
+
+/* ==========================================================================
+   05. OVERSIZED "SINCE 1992" HERITAGE SPREAD
+   ========================================================================== */
+.heritage-monograph {
+  background: var(--c-white);
+  padding: var(--sp-2xl) 0;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--c-ivory-border);
+}
+
+/* Oversized watermark 1992 */
+.heritage-watermark-1992 {
+  position: absolute;
+  top: -1rem;
+  right: -2rem;
+  font-family: var(--font-serif);
+  font-size: clamp(8rem, 22vw, 19rem);
+  font-weight: 600;
+  color: rgba(22, 45, 33, 0.035);
+  line-height: 0.85;
+  user-select: none;
+  pointer-events: none;
+  letter-spacing: -0.05em;
+  z-index: 1;
+}
+
+.heritage-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 4.5rem;
+  align-items: start;
+  position: relative;
+  z-index: 2;
+}
+
+.heritage-year-column {
+  border-left: 3px solid var(--c-lime);
+  padding-left: 2rem;
+}
+
+.heritage-lead-year {
+  font-family: var(--font-serif);
+  font-size: clamp(4.5rem, 9vw, 7.5rem);
+  line-height: 0.95;
+  color: var(--c-botanical-deep);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.04em;
+}
+
+.heritage-lead-year em {
+  color: var(--c-lime-dark);
+}
+
+.heritage-subtext {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--c-botanical-moss);
+  margin-bottom: 1.75rem;
+}
+
+.heritage-story-text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--c-ink-soft);
+  margin-bottom: 1.5rem;
+}
+
+/* 3 Botanical Editorial Pillars */
+.heritage-pillars-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--c-ivory-border);
+}
+
+.botanical-pillar-card {
+  position: relative;
+  padding: 1.75rem 1.5rem;
+  background: var(--c-ivory);
+  border: 1px solid var(--c-ivory-border);
+  border-radius: var(--radius-xs);
+  transition: all var(--tr-fast);
+}
+
+.botanical-pillar-card:hover {
+  border-color: var(--c-lime-dark);
+  background: var(--c-white);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(18, 40, 29, 0.05);
+}
+
+.pillar-index {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--c-lime-dark);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.botanical-pillar-card h3 {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--c-botanical-deep);
+  margin-bottom: 0.65rem;
+}
+
+.botanical-pillar-card p {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--c-ink-muted);
+}
+
+/* ==========================================================================
+   05B. CONSULTATION FOCUS & SPECIALITIES
+   ========================================================================== */
+.botanical-specialities-section {
+  background-color: var(--c-ivory-warm);
+  padding: var(--sp-2xl) 0;
+  border-bottom: 1px solid var(--c-ivory-border);
+}
+
+.specialities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.speciality-item {
+  background: var(--c-white);
+  border: 1px solid var(--c-ivory-border);
+  border-radius: var(--radius-xs);
+  padding: 1.85rem 1.6rem;
+  transition: all var(--tr-fast);
+  display: flex;
+  flex-direction: column;
+}
+
+.speciality-item:hover {
+  border-color: var(--c-botanical-moss);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(18, 40, 29, 0.05);
+}
+
+.speciality-num {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--c-botanical-deep);
+  margin-bottom: 0.85rem;
+  display: inline-block;
+}
+
+.speciality-title {
+  font-family: var(--font-serif);
+  font-size: 1.18rem;
+  font-weight: 600;
+  color: var(--c-botanical-black);
+  margin-bottom: 0.6rem;
+  line-height: 1.3;
+}
+
+.speciality-desc {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--c-ink-soft);
+  margin: 0;
+}
+
+/* ==========================================================================
+   06. DOCTOR PRESENTATION — EDITORIAL PROFILES (NOT CARDS!)
+   ========================================================================== */
+.doctors-editorial-section {
+  background-color: var(--c-ivory-warm);
+  padding: var(--sp-2xl) 0;
+  border-bottom: 1px solid var(--c-ivory-border);
+}
+
+.editorial-section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 3.5rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.doctors-split-editorial {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+}
+
+/* Doctor 1: Dr. Sudhir Lohia */
+.doctor-monograph-block {
+  background: var(--c-white);
+  border: 1px solid var(--c-ivory-border);
+  border-radius: var(--radius-xs);
+  padding: 3rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 20px rgba(18, 40, 29, 0.03);
+  transition: border-color var(--tr-fast);
+}
+
+.doctor-monograph-block:hover {
+  border-color: var(--c-botanical-moss);
+}
+
+.doctor-branch-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--c-ivory-border);
+}
+
+.branch-marker {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--c-botanical-forest);
+  background: var(--c-lime-soft);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-xs);
+}
+
+.doctor-full-name {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--c-botanical-deep);
+  margin-bottom: 0.45rem;
+}
+
+.doctor-verified-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--c-botanical-moss);
+  margin-bottom: 1.5rem;
+}
+
+.doctor-clinical-overview {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--c-ink-soft);
+  margin-bottom: 2rem;
+}
+
+.doctor-meta-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1.5rem;
+  background: var(--c-ivory);
+  border: 1px solid var(--c-ivory-border);
+  border-radius: var(--radius-xs);
+  margin-bottom: 1.75rem;
+}
+
+.doc-meta-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+}
+
+.doc-meta-item svg {
+  width: 18px;
+  height: 18px;
+  color: var(--c-botanical-forest);
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.doc-meta-item strong {
+  color: var(--c-botanical-deep);
+}
+
+.doc-meta-item a {
+  color: var(--c-botanical-deep);
+  font-weight: 700;
+}
+.doc-meta-item a:hover {
+  color: var(--c-lime-dark);
+}
+
+/* Doctor 2: Dr. Chaitanya Murti (With Real Verified Photo) */
+.doctor-with-portrait {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 1.75rem;
+  align-items: start;
+  margin-bottom: 1.75rem;
+}
+
+.doctor-portrait-frame {
+  position: relative;
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+  border: 1px solid var(--c-ivory-border);
+  background: var(--c-botanical-deep);
+  box-shadow: 0 8px 24px rgba(18, 40, 29, 0.1);
+  width: 160px;
+  flex-shrink: 0;
+}
+
+.doctor-portrait-frame img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
+}
+
+.portrait-verified-tag {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--c-botanical-black);
+  color: var(--c-lime);
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-align: center;
+  padding: 0.35rem 0.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ==========================================================================
+   PATIENT FEEDBACK SECTION (CONTROLLED DISPLAY VIA SITE_ASSETS CONFIG)
+   ========================================================================== */
+.patient-feedback-section {
+  background: var(--c-ivory);
+  padding: var(--sp-2xl) 0;
+  border-bottom: 1px solid var(--c-ivory-border);
+}
+
+.feedback-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.feedback-card {
+  background: var(--c-white);
+  border: 1px solid var(--c-ivory-border);
+  border-radius: var(--radius-xs);
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 16px rgba(18, 40, 29, 0.03);
+  position: relative;
+}
+
+.feedback-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.feedback-initials-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--c-lime-soft);
+  color: var(--c-botanical-deep);
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--c-lime-dark);
+  flex-shrink: 0;
+}
+
+.feedback-author-info strong {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--c-botanical-deep);
+  font-family: var(--font-serif);
+}
+
+.feedback-author-info span {
+  font-size: 0.72rem;
+  color: var(--c-ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+}
+
+.feedback-status-pill {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--c-botanical-forest);
+  background: var(--c-ivory-sand);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-xs);
+  margin-bottom: 1rem;
+}
+
+.feedback-quote {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--c-ink-muted);
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.feedback-footer-note {
+  font-size: 0.75rem;
+  color: var(--c-ink-muted);
+  border-top: 1px dashed var(--c-ivory-border);
+  padding-top: 0.75rem;
+}
+
+/* ==========================================================================
+   07. INTERACTIVE BRANCH DISCOVERY (BENGALURU & AKOLA)
+   ========================================================================== */
+.branch-experience-section {
+  background: var(--c-white);
+  padding: var(--sp-2xl) 0;
+  border-bottom: 1px solid var(--c-ivory-border);
+}
+
+.branch-nav-tabs {
+  display: inline-flex;
+  gap: 0;
+  border: 1px solid var(--c-botanical-deep);
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+  margin-bottom: 3.5rem;
+}
+
+.branch-switch-btn {
+  padding: 1.1rem 2.75rem;
+  background: var(--c-ivory);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+  border-right: 1px solid var(--c-ivory-border);
+  transition: all var(--tr-fast);
+}
+
+.branch-switch-btn:last-child {
+  border-right: none;
+}
+
+.branch-switch-btn strong {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: var(--c-botanical-deep);
+}
+
+.branch-switch-btn span {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--c-ink-muted);
+}
+
+.branch-switch-btn.active {
+  background: var(--c-botanical-deep);
+}
+
+.branch-switch-btn.active strong {
+  color: var(--c-white);
+}
+
+.branch-switch-btn.active span {
+  color: var(--c-lime);
+}
+
+.branch-switch-btn:not(.active):hover {
+  background: var(--c-lime-soft);
+}
+
+/* Branch Detail View */
+.branch-detail-panel {
+  display: none;
+  animation: fadeIn 0.4s ease;
+}
+
+.branch-detail-panel.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.branch-experience-layout {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 3.5rem;
+  align-items: stretch;
+}
+
+.branch-editorial-info {
+  background: var(--c-ivory);
+  border: 1px solid var(--c-ivory-border);
+  border-radius: var(--radius-xs);
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.branch-title-wrap h3 {
+  font-size: clamp(2rem, 3.4vw, 2.8rem);
+  margin-bottom: 0.35rem;
+}
+
+.branch-doc-subtitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--c-botanical-moss);
+  margin-bottom: 2rem;
+}
+
+.branch-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+  margin-bottom: 2.5rem;
+}
+
+.b-detail-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.b-detail-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--c-botanical-forest);
+  padding-top: 0.15rem;
+}
+
+.b-detail-value {
+  font-size: 0.95rem;
+  color: var(--c-ink-soft);
+  line-height: 1.6;
+}
+
+.b-detail-value a {
+  font-weight: 700;
+  color: var(--c-botanical-deep);
+}
+.b-detail-value a:hover {
+  color: var(--c-lime-dark);
+}
+
+.branch-actions-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Branch Map Box */
+.branch-map-frame {
+  border: 1px solid var(--c-ivory-border);
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+  height: 100%;
+  min-height: 420px;
+  background: var(--c-botanical-deep);
+  position: relative;
+}
+
+.branch-map-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* ==========================================================================
+   08. IMMERSIVE HORIZONTAL PHOTOGRAPHY GALLERY (AKOLA CLINIC PHOTOGRAPHS)
+   ========================================================================== */
+.botanical-gallery-section {
+  background: var(--c-botanical-black);
+  color: var(--c-white);
+  padding: var(--sp-2xl) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-head-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.gallery-head-row h2 {
+  color: var(--c-white);
+}
+
+.gallery-head-row p {
+  color: #B4C4B8;
+  max-width: 440px;
+  font-size: 0.95rem;
+}
+
+/* Immersive Gallery Carousel */
+.gallery-carousel-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-xs);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--c-botanical-deep);
+  height: 520px;
+}
+
+.gallery-track-slider {
+  display: flex;
+  height: 100%;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.gallery-slide-item {
+  min-width: 100%;
+  height: 100%;
+  position: relative;
+  background: var(--c-botanical-deep);
+}
+
+.gallery-slide-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay caption */
+.slide-caption-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(10, 22, 16, 0.95) 0%, rgba(10, 22, 16, 0.5) 70%, transparent 100%);
+  padding: 3rem 2.5rem 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.slide-caption-bar strong {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: var(--c-white);
+}
+
+.slide-caption-bar span {
+  font-size: 0.85rem;
+  color: var(--c-lime);
+}
+
+/* Controls */
+.gallery-nav-controls {
+  position: absolute;
+  bottom: 2rem;
+  right: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 10;
+}
+
+.gallery-ctrl-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: var(--c-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--tr-fast);
+}
+
+.gallery-ctrl-btn:hover {
+  background: var(--c-lime);
+  color: var(--c-botanical-black);
+  border-color: var(--c-lime);
+}
+
+.gallery-dots-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.g-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all var(--tr-fast);
+}
+
+.g-dot.active {
+  background: var(--c-lime);
+  width: 26px;
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   09. CLINICAL CONSULTATION METHODOLOGY (BOTANICAL EDITORIAL SPREAD)
+   ========================================================================== */
+.botanical-approach-section {
+  background: var(--c-ivory);
+  padding: var(--sp-2xl) 0;
+  border-bottom: 1px solid var(--c-ivory-border);
+}
+
+.approach-intro-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 4rem;
+  margin-bottom: 3.5rem;
+}
+
+.approach-timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.timeline-step {
+  padding: 2.25rem 1.75rem;
+  background: var(--c-white);
+  border: 1px solid var(--c-ivory-border);
+  border-radius: var(--radius-xs);
+  border-top: 3px solid var(--c-lime-dark);
+  transition: transform var(--tr-fast);
+}
+
+.timeline-step:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(18, 40, 29, 0.06);
+}
+
+.step-num {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--c-lime-dark);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-step h4 {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--c-botanical-deep);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-step p {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--c-ink-muted);
+}
+
+/* ==========================================================================
+   10. APPOINTMENT ENQUIRY LOUNGE (DEEP BOTANICAL + LIME ACCENTS)
+   ========================================================================== */
+.appointment-lounge-section {
+  background: var(--c-botanical-deep);
+  color: var(--c-white);
+  padding: var(--sp-2xl) 0;
+  position: relative;
+}
+
+.lounge-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.08fr;
+  gap: 4.5rem;
+  align-items: start;
+}
+
+.lounge-narrative-col {
+  padding-right: 1.5rem;
+}
+
+.lounge-narrative-col h2 {
+  color: var(--c-white);
+  margin-bottom: 1.5rem;
+}
+
+.lounge-narrative-col p {
+  color: #C0D3C5;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.lounge-branch-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.l-b-card {
+  padding: 1.35rem 1.65rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-xs);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.l-b-card strong {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--c-white);
+}
+
+.l-b-card span {
+  font-size: 0.8rem;
+  color: #A2B9A9;
+}
+
+.l-b-card a {
+  color: var(--c-lime);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.l-b-card a:hover {
+  color: var(--c-lime-bright);
+}
+
+.lounge-disclaimer-box {
+  padding: 1rem 1.25rem;
+  background: rgba(152, 212, 55, 0.08);
+  border-left: 3px solid var(--c-lime);
+  font-size: 0.82rem;
+  color: #DDE7DF;
+  line-height: 1.6;
+}
+
+/* Appointment Form Card */
+.lounge-form-card {
+  background: var(--c-white);
+  color: var(--c-ink-soft);
+  border-radius: var(--radius-xs);
+  padding: 3rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.form-head-title {
+  font-family: var(--font-serif);
+  font-size: 1.85rem;
+  color: var(--c-botanical-deep);
+  margin-bottom: 0.25rem;
+}
+
+.form-head-subtitle {
+  font-size: 0.85rem;
+  color: var(--c-ink-muted);
+  margin-bottom: 1.75rem;
+}
+
+.form-branch-selector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.f-branch-btn {
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--c-ivory-border);
+  background: var(--c-ivory);
+  color: var(--c-botanical-deep);
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  text-align: center;
+  transition: all var(--tr-fast);
+}
+
+.f-branch-btn small {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--c-ink-muted);
+  margin-top: 0.15rem;
+}
+
+.f-branch-btn.active {
+  background: var(--c-botanical-deep);
+  color: var(--c-white);
+  border-color: var(--c-botanical-deep);
+}
+
+.f-branch-btn.active small {
+  color: var(--c-lime);
+}
+
+.f-notice-banner {
+  padding: 0.75rem 1rem;
+  background: var(--c-lime-soft);
+  border-left: 3px solid var(--c-lime-dark);
+  font-size: 0.82rem;
+  color: var(--c-botanical-forest);
+  margin-bottom: 1.5rem;
+  border-radius: var(--radius-xs);
+}
+
+.f-notice-banner a {
+  font-weight: 700;
+  color: var(--c-botanical-deep);
+}
+
+.form-grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-field-full {
+  grid-column: 1 / -1;
+}
+
+.form-field label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--c-botanical-deep);
+}
+
+.form-field label span.req {
+  color: #C0392B;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-size: 0.92rem;
+  border: 1px solid var(--c-ivory-border);
+  background: var(--c-ivory);
+  border-radius: var(--radius-xs);
+  color: var(--c-ink);
+  transition: all var(--tr-fast);
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  outline: none;
+  background: var(--c-white);
+  border-color: var(--c-botanical-deep);
+  box-shadow: 0 0 0 3px rgba(18, 40, 29, 0.1);
+}
+
+.honeypot-anti-spam {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.form-submit-btn {
+  width: 100%;
+  padding: 1.05rem;
+  background: var(--c-botanical-deep);
+  color: var(--c-white);
+  border: none;
+  border-radius: var(--radius-xs);
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  transition: all var(--tr-fast);
+  margin-top: 1rem;
+}
+
+.form-submit-btn:hover {
+  background: var(--c-botanical-forest);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(18, 40, 29, 0.25);
+}
+
+.form-submit-btn svg {
+  color: var(--c-lime);
+}
+
+.form-note-under {
+  font-size: 0.76rem;
+  color: var(--c-ink-muted);
+  text-align: center;
+  margin-top: 0.85rem;
+  line-height: 1.5;
+}
+
+.form-feedback-alert {
+  display: none;
+  padding: 0.9rem 1.15rem;
+  border-radius: var(--radius-xs);
+  font-size: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+.form-feedback-alert.is-success {
+  display: block;
+  background: var(--c-lime-soft);
+  color: var(--c-botanical-forest);
+  border: 1px solid var(--c-lime-dark);
+}
+.form-feedback-alert.is-error {
+  display: block;
+  background: #FDF2E9;
+  color: #C0392B;
+  border: 1px solid #E6B0AA;
+}
+
+/* ==========================================================================
+   11. BRANDED EDITORIAL FOOTER
+   ========================================================================== */
+.botanical-footer {
+  background: var(--c-botanical-black);
+  color: var(--c-white);
+  padding: var(--sp-2xl) 0 2rem;
+  position: relative;
+}
+
+.footer-top-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 4.5rem;
+  margin-bottom: 4rem;
+  padding-bottom: 3.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-logo-link {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.footer-logo-img {
+  height: 52px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+  display: block;
+  background: transparent;
+}
+
+.footer-manifesto {
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: #A7BAAC;
+  margin-bottom: 1.75rem;
+}
+
+.footer-social-row {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.footer-social-row a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--c-lime);
+}
+
+.footer-social-row a:hover {
+  color: var(--c-white);
+}
+
+.footer-columns-group {
+  display: grid;
+  grid-template-columns: 180px 1fr 1fr;
+  gap: 3rem;
+}
+
+.footer-col h5 {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--c-lime);
+  margin-bottom: 1.5rem;
+}
+
+.footer-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.footer-nav-list a {
+  font-size: 0.9rem;
+  color: #B4C4B8;
+}
+
+.footer-nav-list a:hover {
+  color: var(--c-white);
+}
+
+.footer-branch-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: #9EB0A3;
+  line-height: 1.6;
+}
+
+.footer-branch-card strong {
+  color: var(--c-white);
+  font-size: 0.95rem;
+}
+
+.footer-branch-card a {
+  color: var(--c-lime);
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+.footer-branch-card a:hover {
+  color: var(--c-white);
+}
+
+.footer-bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  font-size: 0.78rem;
+  color: #7A8E80;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   12. FLOATING ASSISTANCE & UTILITIES
+   ========================================================================== */
+.floating-whatsapp-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25D366;
+  color: var(--c-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.4);
+  z-index: 900;
+  transition: transform var(--tr-fast), box-shadow var(--tr-fast);
+}
+
+.floating-whatsapp-btn:hover {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.55);
+  color: var(--c-white);
+}
+
+.floating-back-to-top {
+  position: fixed;
+  bottom: 6.5rem;
+  right: 2.2rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--c-botanical-deep);
+  color: var(--c-lime);
+  border: 1px solid var(--c-lime);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 900;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--tr-fast);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.floating-back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.floating-back-to-top:hover {
+  background: var(--c-lime);
+  color: var(--c-botanical-black);
+}
+
+/* ==========================================================================
+   RESPONSIVE BOTANICAL STYLES
+   ========================================================================== */
+@media (max-width: 1180px) {
+  .hero-editorial-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .hero-image-column {
+    max-width: 600px;
+    margin-inline: auto;
+    width: 100%;
+  }
+  .doctors-split-editorial {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .branch-experience-layout {
+    grid-template-columns: 1fr;
+  }
+  .branch-map-frame {
+    min-height: 350px;
+  }
+  .lounge-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .approach-timeline {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 860px) {
+  .header-nav, .header-phone-quick, .header-cta-btn {
+    display: none !important;
+  }
+  .mobile-nav-toggle {
+    display: flex;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+  }
+  .brand-logo-img {
+    height: 46px;
+  }
+  .hero-headline {
+    font-size: clamp(2.3rem, 6.5vw, 3.2rem);
+  }
+  .heritage-watermark-1992 {
+    display: none !important;
+  }
+  .heritage-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .heritage-pillars-strip {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .specialities-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  .gallery-carousel-frame {
+    height: 400px;
+  }
+  .footer-columns-group {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .top-desk-strip {
+    display: none;
+  }
+}
+
+@media (max-width: 580px) {
+  .container, .container-wide {
+    padding-inline: 1.25rem;
+  }
+  .botanical-header-bar {
+    padding: 0.75rem 0;
+  }
+  .brand-logo-img {
+    height: 42px;
+    max-width: 170px;
+  }
+  .botanical-hero {
+    padding: 2rem 0 3rem;
+  }
+  .hero-editorial-grid {
+    gap: 1.75rem;
+  }
+  .hero-headline {
+    font-size: clamp(2.1rem, 8.5vw, 2.7rem);
+    line-height: 1.15;
+  }
+  .hero-narrative {
+    font-size: 0.98rem;
+    line-height: 1.65;
+    margin-bottom: 1.75rem;
+  }
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+  .btn-hero-primary, .btn-hero-secondary {
+    width: 100%;
+    justify-content: center;
+    padding: 0.9rem 1.5rem;
+    min-height: 48px;
+    font-size: 0.95rem;
+  }
+  .hero-image-frame {
+    aspect-ratio: 16 / 11;
+  }
+  .hero-image-caption {
+    padding: 1.5rem 1rem 0.85rem;
+    font-size: 0.76rem;
+  }
+  .specialities-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
+  }
+  .speciality-item {
+    padding: 1.25rem 1rem;
+  }
+  .speciality-num {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+  }
+  .speciality-title {
+    font-size: 0.98rem;
+  }
+  .speciality-desc {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+  .doctor-monograph-block {
+    padding: 2rem 1.25rem;
+  }
+  .doctor-with-portrait {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+  .doctor-portrait-frame {
+    width: 130px;
+    height: 170px;
+    aspect-ratio: 3 / 4;
+    flex-shrink: 0;
+    margin-bottom: 0.25rem;
+  }
+  .doctor-monograph-block .btn-hero-secondary,
+  .doctor-monograph-block .btn-hero-primary {
+    width: 100%;
+    min-height: 48px;
+    text-align: center;
+    justify-content: center;
+  }
+  .branch-switch-btn {
+    padding: 0.85rem 1.25rem;
+    min-height: 48px;
+  }
+  .branch-switch-btn strong {
+    font-size: 1.1rem;
+  }
+  .branch-editorial-info {
+    padding: 2rem 1.25rem;
+  }
+  .b-detail-row {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+  .b-action-row {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+  .b-action-row .btn-hero-primary,
+  .b-action-row .btn-hero-secondary {
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
+  }
+  .gallery-carousel-frame {
+    height: 300px;
+  }
+  .slide-caption-bar {
+    padding: 1.5rem 1.25rem 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+  .gallery-nav-controls {
+    bottom: 1rem;
+    right: 1.25rem;
+  }
+  .approach-timeline {
+    grid-template-columns: 1fr;
+  }
+  .lounge-form-card {
+    padding: 2rem 1.25rem;
+  }
+  .form-branch-selector {
+    grid-template-columns: 1fr;
+  }
+  .form-grid-2col {
+    grid-template-columns: 1fr;
+  }
+  .form-input-editorial,
+  .form-select-editorial,
+  .form-textarea-editorial {
+    font-size: 16px !important;
+    min-height: 48px;
+  }
+  .btn-submit-booking {
+    min-height: 52px;
+    font-size: 1rem;
+  }
+  .footer-columns-group {
+    grid-template-columns: 1fr;
+  }
+  .floating-whatsapp-btn {
+    bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
+    right: 1.25rem;
+    width: 52px;
+    height: 52px;
+    min-width: 48px;
+    min-height: 48px;
+  }
+  .floating-back-to-top {
+    bottom: calc(5rem + env(safe-area-inset-bottom, 0px));
+    right: 1.25rem;
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 360px) {
+  .container, .container-wide {
+    padding-inline: 1rem;
+  }
+  .brand-logo-img {
+    height: 38px;
+    max-width: 150px;
+  }
+  .hero-headline {
+    font-size: 1.95rem;
+  }
+  .specialities-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  .speciality-item {
+    padding: 1.1rem 0.95rem;
+  }
+  .doctor-portrait-frame {
+    width: 110px;
+    height: 145px;
+  }
+  .doctor-monograph-block {
+    padding: 1.5rem 1rem;
+  }
+  .lounge-form-card {
+    padding: 1.5rem 1rem;
+  }
+}
