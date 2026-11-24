@@ -569,6 +569,8 @@ em { font-style: italic; }
   cursor: pointer;
   color: #FFFFFF;
   padding: 0.5rem;
+  min-width: 44px;
+  min-height: 44px;
   display: inline-flex;
   align-items: center;
   justify-content: center;

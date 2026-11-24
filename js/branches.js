@@ -32,7 +32,7 @@ const BRANCH_DATA = {
       "Evening: 4:00 PM – 6:00 PM"
     ],
     mapUrl: "https://www.google.com/maps/dir/?api=1&destination=Pashmina+Waterfront,+Old+Madras+Road,+Battarahalli,+Bengaluru+560049",
-    mapEmbed: "https://maps.google.com/maps?q=Pashmina+Waterfront,+Old+Madras+Road,+Battarahalli,+Bengaluru+560049&t=&z=16&ie=UTF8&iwloc=&output=embed",
+    mapEmbed: "https://www.google.com/maps?q=Pashmina+Waterfront,+Old+Madras+Road,+Battarahalli,+Bengaluru+560049&output=embed",
     mapPinNote: "Verified building complex reference at Pashmina Waterfront. Note: The clinic is located inside Tower 3, 25D (not the general building entrance).",
     image: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=1200&q=80"
   },
