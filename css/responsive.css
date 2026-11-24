@@ -104,9 +104,75 @@
   }
 
   /* Header */
-  .nav-menu { display: none; }
-  .btn-appt { display: none; }
-  .mobile-toggle { display: flex; }
+  .botanical-header, .site-header { height: 72px; }
+  .header-nav, .nav-menu,
+  .header-phone-quick,
+  .header-cta-btn, .btn-appt {
+    display: none !important;
+  }
+  .header-cta-group, .header-actions {
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+  .mobile-nav-toggle, .mobile-toggle {
+    display: flex !important;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+  }
+  .header-brand, .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    min-width: 0;
+    flex-shrink: 1;
+  }
+  .header-brand-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.15;
+    text-align: left;
+    min-width: 0;
+  }
+  .header-brand-title {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-size: 0.88rem;
+    font-weight: 800;
+    white-space: nowrap;
+    line-height: 1.15;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.28em;
+  }
+  .brand-lohia {
+    color: #82B918;
+    font-weight: 800;
+  }
+  .brand-homoeo {
+    color: #07501F;
+    font-weight: 800;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+  }
+  .header-brand-tagline {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    color: #555555;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    line-height: 1.15;
+    margin-top: 1px;
+  }
+  .header-logo-img, .brand-logo {
+    height: 42px;
+    width: auto;
+    max-width: 130px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
 
   /* Hero */
   .hero-heading { font-size: clamp(2.6rem, 8vw, 4rem); }
@@ -214,6 +280,10 @@
   .contact-branch-card {
     padding: 2rem 1.5rem;
   }
+  .contact-map-frame {
+    min-height: 200px;
+    height: 200px;
+  }
 
   /* Appointment form */
   .appointment-card {
@@ -240,9 +310,29 @@
   :root { --sp-xl: 2.5rem; --sp-2xl: 3.75rem; }
 
   .container { padding-inline: 1.25rem; }
-  .header-inner { padding-inline: 1.25rem; }
+  .header-inner, .header-container { padding-inline: 1.25rem; }
+  .botanical-header, .site-header { height: 68px; }
+  .brand-logo, .header-logo-img { height: 42px; max-width: 130px; }
+}
 
-  .brand-logo { height: 42px; max-width: 160px; }
+@media (max-width: 430px) {
+  .header-inner, .header-container { padding-inline: 0.85rem; }
+  .header-brand, .brand { gap: 0.5rem; }
+  .brand-logo, .header-logo-img { height: 38px; max-width: 115px; }
+  .header-brand-title { font-size: 0.82rem; letter-spacing: 0.015em; }
+  .header-brand-tagline { font-size: 0.64rem; }
+}
+
+@media (max-width: 390px) {
+  .header-inner, .header-container { padding-inline: 0.75rem; }
+  .header-brand, .brand { gap: 0.45rem; }
+  .brand-logo, .header-logo-img { height: 36px; max-width: 105px; }
+  .header-brand-title { font-size: 0.78rem; letter-spacing: 0.01em; }
+  .header-brand-tagline { font-size: 0.61rem; }
+  .mobile-nav-toggle, .mobile-toggle { min-width: 40px; min-height: 40px; padding: 0.45rem; }
+}
+
+@media (max-width: 480px) {
 
   /* Hero */
   .hero-text { padding: 2.75rem 1.25rem 2.25rem; }
@@ -312,7 +402,12 @@
     width: 95px;
     height: 125px;
     min-width: 95px;
-    border-radius: 12px;
+    border-radius: 14px;
+  }
+  .doctor-avatar-wrap img {
+    object-fit: cover;
+    object-position: center 20%;
+    border-radius: inherit;
   }
   .doctor-card-name {
     font-size: 1.4rem;
@@ -331,6 +426,10 @@
   }
   .contact-branch-card {
     padding: 1.75rem 1.25rem;
+  }
+  .contact-map-frame {
+    min-height: 190px;
+    height: 190px;
   }
   .appointment-card {
     padding: 1.75rem 1.25rem;
@@ -399,21 +498,25 @@
 /* ── ULTRA-COMPACT MOBILE (≤ 360px) ──────────────────────────────────────── */
 @media (max-width: 360px) {
   .container { padding-inline: 1rem; }
-  .header-inner { padding-inline: 1rem; }
-  .brand-logo { height: 36px; max-width: 130px; }
+  .header-inner, .header-container { padding-inline: 0.65rem; }
+  .header-brand, .brand { gap: 0.4rem; }
+  .brand-logo, .header-logo-img { height: 32px; max-width: 95px; }
+  .header-brand-title { font-size: 0.74rem; letter-spacing: 0.01em; }
+  .header-brand-tagline { font-size: 0.58rem; }
+  .mobile-nav-toggle, .mobile-toggle { min-width: 38px; min-height: 38px; padding: 0.4rem; }
   .about-hero-title { font-size: 1.85rem; }
   .about-hero-frame,
   .heritage-image-frame {
-    border-radius: 12px;
+    border-radius: 14px;
   }
   .doctor-card-name { font-size: 1.22rem; }
-  .doctor-avatar-wrap { width: 75px; height: 100px; min-width: 75px; border-radius: 10px; }
-  .doctor-card { border-radius: 10px; }
+  .doctor-avatar-wrap { width: 75px; height: 100px; min-width: 75px; border-radius: 12px; }
+  .doctor-card { border-radius: 12px; }
   .doctor-card-meta { gap: 0.5rem; }
   .doctor-meta-row { font-size: 0.82rem; }
-  .approach-item { padding: 1.25rem 0.95rem; border-radius: 10px; }
+  .approach-item { padding: 1.25rem 0.95rem; border-radius: 12px; }
   .approach-item h3 { font-size: 1.15rem; }
-  .journey-card { border-radius: 8px; }
+  .journey-card { border-radius: 10px; }
   .clinic-discovery-grid,
   .contact-branch-card,
   .doctor-card,
@@ -427,6 +530,31 @@
   .branch-toggle-btn {
     font-size: 0.92rem;
     padding: 0.45rem 0.55rem;
+  }
+}
+
+@media (max-width: 330px) {
+  .header-inner, .header-container {
+    padding-inline: 0.5rem;
+  }
+  .header-brand, .brand {
+    gap: 0.35rem;
+  }
+  .brand-logo, .header-logo-img {
+    height: 29px;
+    max-width: 86px;
+  }
+  .header-brand-title {
+    font-size: 0.68rem;
+    letter-spacing: 0.005em;
+  }
+  .header-brand-tagline {
+    font-size: 0.52rem;
+  }
+  .mobile-nav-toggle, .mobile-toggle {
+    min-width: 36px;
+    min-height: 36px;
+    padding: 0.35rem;
   }
 }
 

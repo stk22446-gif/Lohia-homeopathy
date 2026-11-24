@@ -6,6 +6,15 @@
 (function () {
   "use strict";
 
+  // Security helper: remove control chars and bound text length
+  function sanitizeInput(str, maxLen) {
+    if (!str || typeof str !== "string") return "";
+    return str
+      .replace(/[\u0000-\u001F\u007F-\u009F]/g, "")
+      .trim()
+      .slice(0, maxLen || 200);
+  }
+
   function initAppointmentForms() {
     const forms = document.querySelectorAll(".appointment-form, form[data-appointment-form]");
 
@@ -19,7 +28,6 @@
 
       function updateBranch(branchKey) {
         if (!window.BRANCH_DATA || !window.BRANCH_DATA[branchKey]) return;
-        const data = window.BRANCH_DATA[branchKey];
 
         // Update active class on buttons
         branchButtons.forEach(function (btn) {
@@ -33,7 +41,7 @@
         });
 
         if (branchInput) {
-          branchInput.value = branchKey;
+          branchInput.value = branchKey === "akola" ? "akola" : "bengaluru";
         }
 
         if (branchKey === "akola") {
@@ -83,46 +91,54 @@
         const phoneInput = form.querySelector('input[name="patient_phone"]');
         const dateInput = form.querySelector('input[name="preferred_date"]');
         const messageInput = form.querySelector('textarea[name="patient_message"]');
-        const branchVal = branchInput ? branchInput.value : "bengaluru";
+        const branchVal = (branchInput && branchInput.value === "akola") ? "akola" : "bengaluru";
 
-        const name = nameInput ? nameInput.value.trim() : "";
-        const phone = phoneInput ? phoneInput.value.trim() : "";
-        const date = dateInput ? dateInput.value.trim() : "";
-        const message = messageInput ? messageInput.value.trim() : "";
+        const name = sanitizeInput(nameInput ? nameInput.value : "", 100);
+        const phone = sanitizeInput(phoneInput ? phoneInput.value : "", 25);
+        const date = sanitizeInput(dateInput ? dateInput.value : "", 30);
+        const message = sanitizeInput(messageInput ? messageInput.value : "", 500);
 
         // Determine preferred time
         let time = "";
         if (branchVal === "akola") {
           const slotSelect = form.querySelector('select[name="akola_time_slot"]');
-          time = slotSelect ? slotSelect.value : "Morning: 10:00 AM – 2:00 PM";
+          time = sanitizeInput(slotSelect ? slotSelect.value : "Morning: 10:00 AM – 2:00 PM", 60);
         } else {
           const timeInput = form.querySelector('input[name="preferred_time"]');
-          time = timeInput && timeInput.value.trim() !== "" ? timeInput.value.trim() : "Morning: 10:00 AM – 1:00 PM / Evening: 4:00 PM – 6:00 PM";
+          time = sanitizeInput(timeInput && timeInput.value.trim() !== "" ? timeInput.value : "Morning: 10:00 AM – 1:00 PM / Evening: 4:00 PM – 6:00 PM", 60);
         }
 
-        // Validation
+        // Validation: Name length (2 to 100)
         if (!name || name.length < 2) {
-          showFeedback(feedback, "Please enter the patient's full name.", "error");
+          showFeedback(feedback, "Please enter the patient's full name (minimum 2 characters).", "error");
           if (nameInput) nameInput.focus();
           return false;
         }
 
+        // Validation: Phone digits (10 to 15 digits)
         const cleanPhone = phone.replace(/[^0-9]/g, "");
-        if (!phone || cleanPhone.length < 10) {
-          showFeedback(feedback, "Please enter a valid contact phone number with at least 10 digits.", "error");
+        if (!cleanPhone || cleanPhone.length < 10 || cleanPhone.length > 15) {
+          showFeedback(feedback, "Please enter a valid contact phone number with 10 to 15 digits.", "error");
           if (phoneInput) phoneInput.focus();
           return false;
         }
 
-        const branchInfo = window.BRANCH_DATA && window.BRANCH_DATA[branchVal] ? window.BRANCH_DATA[branchVal] : null;
-        const targetWhatsapp = branchInfo ? branchInfo.whatsapp : (branchVal === "akola" ? "919420794417" : "919422161321");
+        // Target WhatsApp number strictly verified
+        let targetWhatsapp = branchVal === "akola" ? "919420794417" : "919422161321";
+        if (window.BRANCH_DATA && window.BRANCH_DATA[branchVal] && window.BRANCH_DATA[branchVal].whatsapp) {
+          const configuredNum = String(window.BRANCH_DATA[branchVal].whatsapp).replace(/[^0-9]/g, "");
+          if (/^[0-9]{10,15}$/.test(configuredNum)) {
+            targetWhatsapp = configuredNum;
+          }
+        }
+
         const branchLabel = branchVal === "akola" ? "Akola (Dr. Chaitanya Arvindkumar Murti)" : "Bengaluru (Dr. Sudhir Lohia)";
 
-        // Construct formatted WhatsApp message
+        // Construct formatted WhatsApp message safely
         let msg = "Hello Lohia's Homoeopathy,\n\n";
         msg += "I would like to enquire about an appointment.\n\n";
         msg += "• Patient Name: " + name + "\n";
-        msg += "• Contact Number: " + phone + "\n";
+        msg += "• Contact Number: " + cleanPhone + "\n";
         msg += "• Preferred Branch: " + branchLabel + "\n";
         if (date) msg += "• Preferred Date: " + date + "\n";
         if (time) msg += "• Preferred Time: " + time + "\n";
@@ -131,16 +147,20 @@
 
         const whatsappUrl = "https://wa.me/" + targetWhatsapp + "?text=" + encodeURIComponent(msg);
 
+        // Security check: ensure URL strictly targets https://wa.me/
+        if (!whatsappUrl.startsWith("https://wa.me/")) {
+          return false;
+        }
+
         showFeedback(
           feedback,
           "Opening WhatsApp to coordinate directly with the clinic desk. Your appointment will be confirmed by the clinic.",
           "success"
         );
 
-        // Open WhatsApp window
+        // Open WhatsApp window safely
         const win = window.open(whatsappUrl, "_blank", "noopener,noreferrer");
         if (!win || win.closed || typeof win.closed === "undefined") {
-          // If popup blocked, redirect directly
           window.location.href = whatsappUrl;
         }
       });

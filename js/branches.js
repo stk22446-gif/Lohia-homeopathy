@@ -13,14 +13,14 @@ const BRANCH_DATA = {
     city: "Bengaluru",
     state: "Karnataka",
     pincode: "560049",
-    address: "Pashmina Water Front, Tower 3, 25D, Old Madras Road, Battarahalli, Bengaluru, Karnataka – 560049",
+    address: "Pashmina Water Front, Tower 3, 25D, Old Madras Road, Battarahalli, Bengaluru – 560049, Karnataka, India",
     addressLines: [
       "Pashmina Water Front, Tower 3, 25D",
       "Old Madras Road, Battarahalli",
-      "Bengaluru, Karnataka – 560049"
+      "Bengaluru – 560049, Karnataka, India"
     ],
     phone: "+91 9422161321",
-    phoneDisplay: "+91 942 216 1321",
+    phoneDisplay: "+91 9422 161 321",
     phoneRaw: "+919422161321",
     whatsapp: "919422161321",
     email: "lohiashomoeopathy@gmail.com",
@@ -31,8 +31,9 @@ const BRANCH_DATA = {
       "Morning: 10:00 AM – 1:00 PM",
       "Evening: 4:00 PM – 6:00 PM"
     ],
-    mapUrl: "https://maps.google.com/?q=Pashmina+Waterfront+Battarahalli+Bengaluru",
-    mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.350811906233!2d77.71183207578278!3d13.01332831395893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae11124488b399%3A0xe54d6fa7c6e61f2f!2sPashmina%20Waterfront!5e0!3m2!1sen!2sin!4v1700000000000",
+    mapUrl: "https://www.google.com/maps/dir/?api=1&destination=Pashmina+Waterfront,+Old+Madras+Road,+Battarahalli,+Bengaluru+560049",
+    mapEmbed: "https://maps.google.com/maps?q=Pashmina+Waterfront,+Old+Madras+Road,+Battarahalli,+Bengaluru+560049&t=&z=16&ie=UTF8&iwloc=&output=embed",
+    mapPinNote: "Verified building complex reference at Pashmina Waterfront. Note: The clinic is located inside Tower 3, 25D (not the general building entrance).",
     image: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=1200&q=80"
   },
   akola: {
@@ -51,7 +52,7 @@ const BRANCH_DATA = {
       "Akola – 444001, Maharashtra, India"
     ],
     phone: "+91 9420794417",
-    phoneDisplay: "+91 942 079 4417",
+    phoneDisplay: "+91 9420 794 417",
     phoneRaw: "+919420794417",
     whatsapp: "919420794417",
     email: "lohiashomoeopathy@gmail.com",
@@ -62,8 +63,9 @@ const BRANCH_DATA = {
       "Morning: 10:00 AM – 2:00 PM",
       "Evening: 6:00 PM – 9:00 PM"
     ],
-    mapUrl: "https://maps.google.com/?q=Mankar+Commercial+Complex+SA+College+Road+Civil+Lines+Akola",
-    mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.5513515438843!2d77.00160007593504!3d20.70810009871787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd7299a9b69b06f%3A0x6b447814b62dbd!2sCivil%20Lines%2C%20Akola%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000"
+    mapUrl: "https://www.google.com/maps/dir/?api=1&destination=Mankar+Commercial+Complex,+S.A.+College+Road,+Civil+Lines,+Akola+444001",
+    mapEmbed: "https://maps.google.com/maps?q=Mankar+Commercial+Complex,+S.A.+College+Road,+Civil+Lines,+Akola+444001&t=&z=16&ie=UTF8&iwloc=&output=embed",
+    mapPinNote: "Verified commercial complex reference at Mankar Commercial Complex, S.A. College Road, Civil Lines."
   }
 };
 

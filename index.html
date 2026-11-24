@@ -20,6 +20,13 @@
   <meta property="og:image"
     content="https://res.cloudinary.com/mgkpr2it/image/upload/v1795217665/4bece18e-454e-4bdf-8f9c-175ee4e5244e.jpg">
 
+  <!-- Favicon & Mobile Shortcuts (Official Logo Emblem) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
   <!-- Google Fonts: Fraunces (Modern Botanical Editorial Display Serif) + Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -114,6 +121,10 @@
       <a href="index.html" class="header-brand" aria-label="Lohia's Homoeopathy Home">
         <img src="https://res.cloudinary.com/mgkpr2it/image/upload/v1795220510/fdc22116-5a44-416c-9e67-ab1f7a3a4d89.png"
           alt="Lohia's Homoeopathy Official Logo" class="header-logo-img" width="210" height="60" loading="eager">
+        <div class="header-brand-text">
+          <span class="header-brand-title"><span class="brand-lohia">LOHIA'S</span> <span class="brand-homoeo">HOMOEOPATHY</span></span>
+          <span class="header-brand-tagline">A Legacy of Care Since 1992</span>
+        </div>
       </a>
 
       <nav class="header-nav" aria-label="Primary Navigation">
@@ -151,7 +162,7 @@
         <a href="index.html">
           <img
             src="https://res.cloudinary.com/mgkpr2it/image/upload/v1795220510/fdc22116-5a44-416c-9e67-ab1f7a3a4d89.png"
-            alt="Lohia's Homoeopathy" class="header-logo-img" width="140" height="42">
+            alt="Lohia's Homoeopathy" class="header-logo-img" width="140" height="42" loading="lazy">
         </a>
         <button type="button" class="drawer-close" id="mobileDrawerClose" aria-label="Close menu">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
@@ -226,7 +237,7 @@
         <!-- Right Column: Visually Dominant Medicine Image -->
         <div class="hero-image-column">
           <div class="hero-image-frame">
-            <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=1200&q=80"
+            <img src="https://res.cloudinary.com/mgkpr2it/image/upload/v1795534179/logo.png"
               alt="Professional homeopathic medicine photography — globules and consultation remedies in soft natural light"
               class="hero-dominant-img" width="640" height="490" fetchpriority="high" loading="eager">
 
@@ -433,13 +444,14 @@
                   1992</span>
               </div>
 
-              <!-- Profile with consistent placeholder -->
+              <!-- Profile: Dr. Sudhir Lohia -->
               <div class="doctor-with-portrait">
                 <div class="doctor-portrait-frame">
-                  <img src="assets/images/doctor-placeholder-lohia.svg"
-                    alt="Dr. Sudhir Lohia — Professional Profile Placeholder (Temporary reference image)" width="160"
-                    height="213" loading="lazy">
-                  <div class="portrait-verified-tag">Profile Reference</div>
+                  <img
+                    src="https://res.cloudinary.com/mgkpr2it/image/upload/v1795536555/8f7dd7d7-3ffa-4855-9950-4af8dde0e9bb.png"
+                    alt="Dr. Sudhir Lohia — Homoeopath &amp; Health Care Consultant" width="160" height="213"
+                    loading="lazy">
+                  <div class="portrait-verified-tag">Founding Homoeopath</div>
                 </div>
 
                 <div>
@@ -507,10 +519,11 @@
                   style="font-size: 0.75rem; color: var(--c-ink-muted); font-weight: 700; text-transform: uppercase;">Maharashtra</span>
               </div>
 
-              <!-- Profile with genuine photograph -->
+              <!-- Profile: Dr. Chaitanya Arvindkumar Murti -->
               <div class="doctor-with-portrait">
                 <div class="doctor-portrait-frame">
-                  <img src="https://res.cloudinary.com/mgkpr2it/image/upload/v1795217578/download.jpg"
+                  <img
+                    src="https://res.cloudinary.com/mgkpr2it/image/upload/v1795537121/2163dbe1-15b1-4bed-a356-aa89c691c375.png"
                     alt="Dr. Chaitanya Arvindkumar Murti — Consulting Homoeopath at Lohia's Homoeopathy" width="160"
                     height="213" loading="lazy">
                   <div class="portrait-verified-tag"
@@ -619,7 +632,7 @@
                   <div class="b-detail-row">
                     <span class="b-detail-label">Address</span>
                     <span class="b-detail-value">Pashmina Water Front, Tower 3, 25D, Old Madras Road, Battarahalli,
-                      Bengaluru, Karnataka – 560049, India.</span>
+                      Bengaluru – 560049, Karnataka, India.</span>
                   </div>
 
                   <div class="b-detail-row">
@@ -646,9 +659,9 @@
                   onclick="selectAppointmentBranch('bengaluru')">
                   Book Bengaluru Visit
                 </a>
-                <a href="https://maps.google.com/?q=Pashmina+Waterfront+Battarahalli+Bengaluru" target="_blank"
-                  rel="noopener noreferrer" class="btn-outline">
-                  Google Maps Directions ↗
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Pashmina+Waterfront,+Old+Madras+Road,+Battarahalli,+Bengaluru+560049"
+                  target="_blank" rel="noopener noreferrer" class="btn-outline">
+                  Get Directions in Google Maps ↗
                 </a>
               </div>
             </div>
@@ -656,8 +669,15 @@
             <!-- Map View -->
             <div class="branch-map-frame">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.350811906233!2d77.71183207578278!3d13.01332831395893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae11124488b399%3A0xe54d6fa7c6e61f2f!2sPashmina%20Waterfront!5e0!3m2!1sen!2sin!4v1700000000000"
-                title="Google Maps - Bengaluru Clinic" loading="lazy"></iframe>
+                src="https://maps.google.com/maps?q=Pashmina+Waterfront,+Old+Madras+Road,+Battarahalli,+Bengaluru+560049&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+                title="Google Maps - Bengaluru Clinic Location Pin" loading="lazy"></iframe>
+              <div class="branch-map-note">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                <span><strong>Location Pin:</strong> Verified building complex reference at Pashmina Waterfront. Note: The clinic is located inside Tower 3, 25D (not the general building entrance).</span>
+              </div>
             </div>
           </div>
         </div>
@@ -705,9 +725,9 @@
                 <a href="#appointmentLounge" class="btn-botanical btn-lime" onclick="selectAppointmentBranch('akola')">
                   Book Akola Visit
                 </a>
-                <a href="https://maps.google.com/?q=Mankar+Commercial+Complex+SA+College+Road+Civil+Lines+Akola"
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Mankar+Commercial+Complex,+S.A.+College+Road,+Civil+Lines,+Akola+444001"
                   target="_blank" rel="noopener noreferrer" class="btn-outline">
-                  Google Maps Directions ↗
+                  Get Directions in Google Maps ↗
                 </a>
               </div>
             </div>
@@ -715,8 +735,16 @@
             <!-- Map View -->
             <div class="branch-map-frame">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.5513515438843!2d77.00160007593504!3d20.70810009871787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd7299a9b69b06f%3A0x6b447814b62dbd!2sCivil%20Lines%2C%20Akola%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000"
-                title="Google Maps - Akola Clinic" loading="lazy"></iframe>
+                src="https://maps.google.com/maps?q=Mankar+Commercial+Complex,+S.A.+College+Road,+Civil+Lines,+Akola+444001&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+                title="Google Maps - Akola Clinic Location Pin" loading="lazy"></iframe>
+              <div class="branch-map-note">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                <span><strong>Location Pin:</strong> Verified building reference at Mankar Commercial Complex, S.A.
+                  College Road, Civil Lines.</span>
+              </div>
             </div>
           </div>
         </div>
@@ -1271,7 +1299,15 @@
       }
     }
 
-    // 7. WhatsApp Appointment Submission Handler
+    // 7. WhatsApp Appointment Submission Handler (Hardened)
+    function sanitizeFormInput(str, maxLen) {
+      if (!str || typeof str !== 'string') return '';
+      return str
+        .replace(/[\u0000-\u001F\u007F-\u009F]/g, '')
+        .trim()
+        .slice(0, maxLen || 200);
+    }
+
     function handleBotanicalSubmit(e) {
       e.preventDefault();
       var form = document.getElementById('botanicalAppointmentForm');
@@ -1284,34 +1320,35 @@
         return false;
       }
 
-      var branch = document.getElementById('formBranchValue') ? document.getElementById('formBranchValue').value : 'bengaluru';
-      var name = document.getElementById('pName') ? document.getElementById('pName').value.trim() : '';
-      var phone = document.getElementById('pPhone') ? document.getElementById('pPhone').value.trim() : '';
-      var date = document.getElementById('pDate') ? document.getElementById('pDate').value.trim() : '';
-      var message = document.getElementById('pMessage') ? document.getElementById('pMessage').value.trim() : '';
+      var rawBranch = document.getElementById('formBranchValue') ? document.getElementById('formBranchValue').value : 'bengaluru';
+      var branch = rawBranch === 'akola' ? 'akola' : 'bengaluru';
+      var name = sanitizeFormInput(document.getElementById('pName') ? document.getElementById('pName').value : '', 100);
+      var phone = sanitizeFormInput(document.getElementById('pPhone') ? document.getElementById('pPhone').value : '', 25);
+      var date = sanitizeFormInput(document.getElementById('pDate') ? document.getElementById('pDate').value : '', 30);
+      var message = sanitizeFormInput(document.getElementById('pMessage') ? document.getElementById('pMessage').value : '', 500);
 
       var time = '';
       if (branch === 'akola') {
         var slotEl = document.getElementById('pAkolaSlot');
-        time = slotEl ? slotEl.value : 'Morning: 10:00 AM – 2:00 PM';
+        time = sanitizeFormInput(slotEl ? slotEl.value : 'Morning: 10:00 AM – 2:00 PM', 60);
       } else {
         var timeEl = document.getElementById('pTime');
-        time = timeEl && timeEl.value.trim() !== '' ? timeEl.value.trim() : 'Morning: 10:00 AM – 1:00 PM';
+        time = sanitizeFormInput(timeEl && timeEl.value.trim() !== '' ? timeEl.value : 'Morning: 10:00 AM – 1:00 PM', 60);
       }
 
       // Basic validation
       if (!name || name.length < 2) {
         if (feedback) {
-          feedback.textContent = "Please enter the patient's full name.";
+          feedback.textContent = "Please enter the patient's full name (minimum 2 characters).";
           feedback.className = 'form-feedback-alert is-error';
         }
         return false;
       }
 
       var digits = phone.replace(/[^0-9]/g, '');
-      if (digits.length < 10) {
+      if (digits.length < 10 || digits.length > 15) {
         if (feedback) {
-          feedback.textContent = 'Please enter a valid contact phone number with at least 10 digits.';
+          feedback.textContent = 'Please enter a valid contact phone number with 10 to 15 digits.';
           feedback.className = 'form-feedback-alert is-error';
         }
         return false;
@@ -1323,7 +1360,7 @@
       var textMsg = "Hello Lohia's Homoeopathy,\n\n";
       textMsg += "I would like to enquire about a homeopathic consultation appointment.\n\n";
       textMsg += "• Patient Name: " + name + "\n";
-      textMsg += "• Contact Number: " + phone + "\n";
+      textMsg += "• Contact Number: " + digits + "\n";
       textMsg += "• Branch: " + branchTitle + "\n";
       if (date) textMsg += "• Preferred Date: " + date + "\n";
       if (time) textMsg += "• Preferred Time / Slot: " + time + "\n";
@@ -1331,6 +1368,11 @@
       textMsg += "(Note: I understand this appointment request will be confirmed by the clinic desk.)";
 
       var waUrl = "https://wa.me/" + targetWhatsapp + "?text=" + encodeURIComponent(textMsg);
+
+      // Security validation on WhatsApp redirect target
+      if (!waUrl.startsWith("https://wa.me/")) {
+        return false;
+      }
 
       if (feedback) {
         feedback.textContent = "Connecting to WhatsApp to coordinate directly with our clinic desk. Your appointment will be confirmed by the clinic.";

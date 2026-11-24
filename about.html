@@ -18,11 +18,18 @@
   <meta property="og:description"
     content="Dedicated homeopathic clinic serving patients across Bengaluru and Akola since 1992. Attentive care and individualised healthcare guidance.">
 
+  <!-- Favicon & Mobile Shortcuts (Official Logo Emblem) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
   <!-- Google Fonts Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
 
   <!-- Stylesheets -->
@@ -34,22 +41,43 @@
 
   <a href="#mainContent" class="skip-link">Skip to main content</a>
 
-  <!-- Header -->
-  <header class="site-header" id="siteHeader">
-    <div class="header-inner">
-      <a href="index.html" class="brand" aria-label="Lohia's Homoeopathy Home">
-        <img src="https://res.cloudinary.com/mgkpr2it/image/upload/v1795220510/fdc22116-5a44-416c-9e67-ab1f7a3a4d89.png" alt="Lohia's Homoeopathy" class="brand-logo" width="160" height="52">
+  <!-- =========================================================================
+       02. DISTINCTIVE BRANDED NAVIGATION HEADER
+       ========================================================================= -->
+  <header class="botanical-header site-header" id="botanicalHeader">
+    <div class="container-wide header-container header-inner">
+      <a href="index.html" class="header-brand brand" aria-label="Lohia's Homoeopathy Home">
+        <img src="https://res.cloudinary.com/mgkpr2it/image/upload/v1795220510/fdc22116-5a44-416c-9e67-ab1f7a3a4d89.png"
+          alt="Lohia's Homoeopathy Official Logo" class="header-logo-img brand-logo" width="210" height="60"
+          loading="eager">
+        <div class="header-brand-text">
+          <span class="header-brand-title"><span class="brand-lohia">LOHIA'S</span> <span class="brand-homoeo">HOMOEOPATHY</span></span>
+          <span class="header-brand-tagline">A Legacy of Care Since 1992</span>
+        </div>
       </a>
-      <nav class="nav-menu" aria-label="Primary Navigation">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="about.html" class="nav-link active">About</a>
-        <a href="clinics.html" class="nav-link">Our Clinics</a>
-        <a href="contact.html" class="nav-link">Contact</a>
+
+      <nav class="header-nav nav-menu" aria-label="Primary Navigation">
+        <a href="index.html" class="header-nav-link nav-link">Home</a>
+        <a href="about.html" class="header-nav-link nav-link active">About &amp; Doctors</a>
+        <a href="clinics.html" class="header-nav-link nav-link">Our Clinics</a>
+        <a href="contact.html" class="header-nav-link nav-link">Contact</a>
       </nav>
-      <div class="header-actions">
-        <a href="appointment.html" class="btn-appt">Book Appointment</a>
-        <button type="button" class="mobile-toggle" id="mobileToggle" aria-label="Open menu" aria-expanded="false">
-          <span></span><span></span><span></span>
+
+      <div class="header-cta-group header-actions">
+        <div class="header-phone-quick">
+          <span>Appointment Desk</span>
+          <a href="tel:+919422161321">+91 9422 161 321</a>
+        </div>
+        <a href="appointment.html" class="btn-botanical btn-lime header-cta-btn btn-appt">
+          Book Consultation
+        </a>
+        <button type="button" class="mobile-nav-toggle mobile-toggle" id="mobileNavToggle" aria-label="Open mobile menu"
+          aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="7" x2="21" y2="7" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="17" x2="21" y2="17" />
+          </svg>
         </button>
       </div>
     </div>
@@ -63,7 +91,7 @@
         <a href="index.html">
           <img
             src="https://res.cloudinary.com/mgkpr2it/image/upload/v1795220510/fdc22116-5a44-416c-9e67-ab1f7a3a4d89.png"
-            alt="Lohia's Homoeopathy" class="header-logo-img" width="140" height="42">
+            alt="Lohia's Homoeopathy" class="header-logo-img" width="140" height="42" loading="lazy">
         </a>
         <button type="button" class="drawer-close" id="mobileDrawerClose" aria-label="Close menu">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
@@ -84,8 +112,10 @@
     <div class="drawer-foot">
       <a href="appointment.html" class="btn-drawer-cta">Book Consultation</a>
       <div class="branch-nums">
-        <div><strong>Bengaluru:</strong> <a href="tel:+919422161321" style="color: inherit; text-decoration: none;">+91 9422 161 321</a></div>
-        <div><strong>Akola:</strong> <a href="tel:+919420794417" style="color: inherit; text-decoration: none;">+91 9420 794 417</a></div>
+        <div><strong>Bengaluru:</strong> <a href="tel:+919422161321" style="color: inherit; text-decoration: none;">+91
+            9422 161 321</a></div>
+        <div><strong>Akola:</strong> <a href="tel:+919420794417" style="color: inherit; text-decoration: none;">+91 9420
+            794 417</a></div>
         <div class="drawer-timing-note">Bengaluru: Mon–Sat 10am–1pm &amp; 4pm–6pm · Sun Closed</div>
       </div>
     </div>
@@ -109,8 +139,10 @@
         </div>
         <div class="about-hero-visual">
           <div class="about-hero-frame reveal-on-scroll">
-            <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=1000&q=80"
-              alt="Tasteful homeopathic globules and consultation remedies under soft natural light" width="560" height="420">
+            <img
+              src="https://res.cloudinary.com/mgkpr2it/image/upload/v1795553523/200dfb44-41fd-471b-91e9-4d185bca9cab.png"
+              alt="Tasteful homeopathic globules and consultation remedies under soft natural light" width="560"
+              height="420" loading="lazy">
           </div>
         </div>
       </div>
@@ -120,8 +152,9 @@
     <section class="section section-white" id="heritageStory">
       <div class="container heritage-grid">
         <div class="heritage-image-frame reveal-on-scroll">
-          <img src="https://images.unsplash.com/photo-1512069772995-ec65ed45afd6?auto=format&fit=crop&w=1000&q=80"
-            alt="Natural botanical preparations and classical homeopathic remedy vials" width="520" height="440">
+          <img
+            src="https://res.cloudinary.com/mgkpr2it/image/upload/v1795553797/ebb9db26-156d-4305-bd1d-401161fa3264.png"
+            alt="Natural botanical preparations and classical homeopathic remedy vials" width="520" height="440" loading="lazy">
         </div>
 
         <div class="heritage-text-col reveal-on-scroll">
@@ -166,12 +199,15 @@
               <span class="doctor-branch-pill">Bengaluru Branch</span>
               <div class="doctor-header-row">
                 <div class="doctor-avatar-wrap">
-                  <img src="assets/images/doctor-placeholder-lohia.svg" alt="Dr. Sudhir Lohia — Profile Reference" width="110" height="145">
+                  <img
+                    src="https://res.cloudinary.com/mgkpr2it/image/upload/v1795536555/8f7dd7d7-3ffa-4855-9950-4af8dde0e9bb.png"
+                    alt="Dr. Sudhir Lohia — Homoeopath &amp; Health Care Consultant" width="110" height="145"
+                    loading="lazy">
                 </div>
                 <div class="doctor-info-col">
                   <h3 class="doctor-card-name">Dr. Sudhir Lohia</h3>
                   <p class="doctor-card-title">Homoeopath &amp; Health Care Consultant</p>
-                  <span class="doctor-badge-tag tag-reference">Profile Reference · Since 1992</span>
+                  <span class="doctor-badge-tag tag-consulting">Founding Homoeopath · Since 1992</span>
                 </div>
               </div>
               <p class="doctor-card-desc">
@@ -216,7 +252,10 @@
               <span class="doctor-branch-pill">Akola Branch</span>
               <div class="doctor-header-row">
                 <div class="doctor-avatar-wrap">
-                  <img src="https://res.cloudinary.com/mgkpr2it/image/upload/v1795217578/download.jpg" alt="Dr. Chaitanya Arvindkumar Murti — Consulting Homoeopath" width="110" height="145">
+                  <img
+                    src="https://res.cloudinary.com/mgkpr2it/image/upload/v1795537121/2163dbe1-15b1-4bed-a356-aa89c691c375.png"
+                    alt="Dr. Chaitanya Arvindkumar Murti — Consulting Homoeopath" width="110" height="145"
+                    loading="lazy">
                 </div>
                 <div class="doctor-info-col">
                   <h3 class="doctor-card-name">Dr. Chaitanya Arvindkumar Murti</h3>
@@ -342,22 +381,27 @@
           <div class="journey-list">
             <div class="journey-card">
               <h4>1. In-Depth History Review</h4>
-              <p>We explore your primary health concerns, past medical history, family tendencies, and when symptoms first appeared.</p>
+              <p>We explore your primary health concerns, past medical history, family tendencies, and when symptoms
+                first appeared.</p>
             </div>
             <div class="journey-card">
               <h4>2. Constitutional Analysis</h4>
-              <p>We assess your general physical traits—reactions to weather, energy cycles, food preferences, and sleep rhythms.</p>
+              <p>We assess your general physical traits—reactions to weather, energy cycles, food preferences, and sleep
+                rhythms.</p>
             </div>
             <div class="journey-card">
               <h4>3. Prescribing &amp; Direction</h4>
-              <p>Following case analysis, individualized remedies and clear written instructions are provided alongside follow-up scheduling.</p>
+              <p>Following case analysis, individualized remedies and clear written instructions are provided alongside
+                follow-up scheduling.</p>
             </div>
           </div>
         </div>
 
         <div class="heritage-image-frame reveal-on-scroll">
-          <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1000&q=80"
-            alt="Tasteful natural wellness and holistic care environment with serene botanical atmosphere" width="520" height="440" loading="lazy">
+          <img
+            src="https://res.cloudinary.com/mgkpr2it/image/upload/v1795553948/5490fa06-21db-41fb-b5e2-7c2b6f72f57d.png"
+            alt="Tasteful natural wellness and holistic care environment with serene botanical atmosphere" width="520"
+            height="440" loading="lazy">
         </div>
       </div>
     </section>
@@ -398,12 +442,17 @@
       <div class="container footer-top-inner">
         <div class="footer-brand">
           <a href="index.html" aria-label="Lohia's Homoeopathy Home">
-            <img src="https://res.cloudinary.com/mgkpr2it/image/upload/v1795220510/fdc22116-5a44-416c-9e67-ab1f7a3a4d89.png" alt="Lohia's Homoeopathy" class="footer-logo" width="140" height="46">
+            <img
+              src="https://res.cloudinary.com/mgkpr2it/image/upload/v1795220510/fdc22116-5a44-416c-9e67-ab1f7a3a4d89.png"
+              alt="Lohia's Homoeopathy" class="footer-logo" width="140" height="46" loading="lazy">
           </a>
-          <p class="footer-tagline">Professional homeopathic consultation and personalised healthcare guidance. Established 1992.</p>
+          <p class="footer-tagline">Professional homeopathic consultation and personalised healthcare guidance.
+            Established 1992.</p>
           <div class="footer-social">
-            <a href="https://www.instagram.com/lohiashomoeopathy?bqrl=MTh4eng3emR1a2Vhbw==" target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a href="https://www.facebook.com/share/16PRApj35Mx/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://www.instagram.com/lohiashomoeopathy?bqrl=MTh4eng3emR1a2Vhbw==" target="_blank"
+              rel="noopener noreferrer">Instagram</a>
+            <a href="https://www.facebook.com/share/16PRApj35Mx/?mibextid=wwXIfr" target="_blank"
+              rel="noopener noreferrer">Facebook</a>
           </div>
         </div>
         <div class="footer-cols">
@@ -422,7 +471,8 @@
             <p><strong>Dr. Sudhir Lohia</strong></p>
             <p>Pashmina Water Front, Tower 3, 25D, Old Madras Road, Battarahalli, Bengaluru &ndash; 560049</p>
             <a href="tel:+919422161321">+91 942 216 1321</a>
-            <a href="mailto:lohiashomoeopathy@gmail.com" style="display:block; margin-top: 0.25rem; font-size: 0.85rem;">lohiashomoeopathy@gmail.com</a>
+            <a href="mailto:lohiashomoeopathy@gmail.com"
+              style="display:block; margin-top: 0.25rem; font-size: 0.85rem;">lohiashomoeopathy@gmail.com</a>
             <small>Mon&ndash;Sat: 10 AM&ndash;1 PM &amp; 4&ndash;6 PM &middot; Sun Closed</small>
           </div>
           <div class="footer-col">
@@ -430,7 +480,8 @@
             <p><strong>Dr. Chaitanya Arvindkumar Murti</strong></p>
             <p>Mankar Commercial Complex, S.A. College Road, Civil Lines, Akola &ndash; 444001, Maharashtra</p>
             <a href="tel:+919420794417">+91 942 079 4417</a>
-            <a href="mailto:lohiashomoeopathy@gmail.com" style="display:block; margin-top: 0.25rem; font-size: 0.85rem;">lohiashomoeopathy@gmail.com</a>
+            <a href="mailto:lohiashomoeopathy@gmail.com"
+              style="display:block; margin-top: 0.25rem; font-size: 0.85rem;">lohiashomoeopathy@gmail.com</a>
             <small>Mon&ndash;Sat: 10 AM&ndash;2 PM &amp; 6&ndash;9 PM &middot; Sun Closed</small>
           </div>
         </div>
@@ -438,7 +489,8 @@
     </div>
     <div class="footer-bottom">
       <div class="container footer-bottom-inner">
-        <span>&copy; <span class="current-year"></span> Lohia's Homoeopathy. All Rights Reserved. Practice established in 1992.</span>
+        <span>&copy; <span class="current-year"></span> Lohia's Homoeopathy. All Rights Reserved. Practice established
+          in 1992.</span>
         <span>Homeopathic Clinics &middot; Bengaluru (Karnataka) &amp; Akola (Maharashtra)</span>
       </div>
     </div>
@@ -454,4 +506,5 @@
   <script src="js/appointment.js"></script>
   <script src="js/main.js"></script>
 </body>
+
 </html>

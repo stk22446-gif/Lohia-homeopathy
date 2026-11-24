@@ -22,7 +22,7 @@
      1. STICKY HEADER SCROLL STATE
   ============================================================ */
   function initHeaderScroll() {
-    var header = document.getElementById("siteHeader");
+    var header = document.getElementById("botanicalHeader") || document.getElementById("siteHeader");
     if (!header) return;
     function onScroll() {
       header.classList.toggle("is-scrolled", window.scrollY > 40);
@@ -106,7 +106,7 @@
   function initActiveNav() {
     var page = window.location.pathname.split("/").pop() || "index.html";
     if (page === "") page = "index.html";
-    var links = document.querySelectorAll(".nav-menu .nav-link, .mobile-nav .mobile-nav-link");
+    var links = document.querySelectorAll(".header-nav .header-nav-link, .nav-menu .nav-link, .drawer-nav a, .mobile-nav .mobile-nav-link");
     links.forEach(function (link) {
       var href = (link.getAttribute("href") || "").split("#")[0].split("?")[0];
       if (href === page) {
@@ -256,10 +256,16 @@
     document.querySelectorAll("a[href^=\"#\"]:not([href=\"#\"])").forEach(function (link) {
       link.addEventListener("click", function (e) {
         var id = this.getAttribute("href");
-        var target = document.querySelector(id);
+        if (!id || !/^#[a-zA-Z0-9_-]+$/.test(id)) return;
+        var target = null;
+        try {
+          target = document.querySelector(id);
+        } catch (err) {
+          return;
+        }
         if (!target) return;
         e.preventDefault();
-        var header = document.getElementById("siteHeader");
+        var header = document.getElementById("botanicalHeader") || document.getElementById("siteHeader");
         var offset = header ? header.offsetHeight + 16 : 80;
         window.scrollTo({
           top: target.getBoundingClientRect().top + window.scrollY - offset,

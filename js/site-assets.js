@@ -17,9 +17,8 @@ const SITE_ASSETS = {
 
   // 1. Doctor Photographs & Profiles
   // --------------------------------------------------------------------------
-  // Dr. Sudhir Lohia uses a professional neutral silhouette reference placeholder
-  // pending official studio portrait.
-  // Dr. Chaitanya Arvindkumar Murti uses his authentic consulting doctor photograph.
+  // Official approved studio photographs for Dr. Sudhir Lohia and
+  // Dr. Chaitanya Arvindkumar Murti.
   doctors: {
     // Doctor 1: Dr. Sudhir Lohia (Bengaluru Branch)
     drSudhirLohia: {
@@ -32,9 +31,9 @@ const SITE_ASSETS = {
       phoneRaw: "+919422161321",
       whatsapp: "919422161321",
       schedule: "Mon–Sat: 10:00 AM – 1:00 PM & 4:00 PM – 6:00 PM (Sunday Closed)",
-      isPlaceholder: true,
-      imageUrl: "assets/images/doctor-placeholder-lohia.svg",
-      imageAlt: "Dr. Sudhir Lohia — Professional Profile Placeholder (Temporary reference image, official portrait pending)"
+      isPlaceholder: false,
+      imageUrl: "https://res.cloudinary.com/mgkpr2it/image/upload/v1795536555/8f7dd7d7-3ffa-4855-9950-4af8dde0e9bb.png",
+      imageAlt: "Dr. Sudhir Lohia — Homoeopath & Health Care Consultant at Lohia's Homoeopathy"
     },
 
     // Doctor 2: Dr. Chaitanya Arvindkumar Murti (Akola Branch)
@@ -49,7 +48,7 @@ const SITE_ASSETS = {
       whatsapp: "919420794417",
       schedule: "Mon–Sat: 10:00 AM – 2:00 PM & 6:00 PM – 9:00 PM (Sunday Closed)",
       isPlaceholder: false,
-      imageUrl: "https://res.cloudinary.com/mgkpr2it/image/upload/v1795217578/download.jpg",
+      imageUrl: "https://res.cloudinary.com/mgkpr2it/image/upload/v1795537121/2163dbe1-15b1-4bed-a356-aa89c691c375.png",
       imageAlt: "Dr. Chaitanya Arvindkumar Murti — Consulting Homoeopath at Lohia's Homoeopathy"
     }
   },
@@ -91,11 +90,11 @@ const SITE_ASSETS = {
     sectionEyebrow: "Patient Experiences",
     sectionDescription: "Authentic feedback and experiences from patients under clinical consultation at Lohia's Homoeopathy.",
     placeholderNotice: "Patient feedback entries will be displayed here once genuine voluntary written consent has been verified.",
-    avatarPlaceholder: "assets/images/patient-avatar-placeholder.svg",
+    avatarPlaceholder: "",
     entries: [
       {
         id: "feedback-01",
-        avatar: "assets/images/patient-avatar-placeholder.svg",
+        avatar: "",
         initials: "P. R.",
         branch: "Bengaluru Clinic",
         consultant: "Dr. Sudhir Lohia",
@@ -104,7 +103,7 @@ const SITE_ASSETS = {
       },
       {
         id: "feedback-02",
-        avatar: "assets/images/patient-avatar-placeholder.svg",
+        avatar: "",
         initials: "A. M.",
         branch: "Akola Clinic",
         consultant: "Dr. Chaitanya Arvindkumar Murti",
@@ -113,7 +112,7 @@ const SITE_ASSETS = {
       },
       {
         id: "feedback-03",
-        avatar: "assets/images/patient-avatar-placeholder.svg",
+        avatar: "",
         initials: "K. S.",
         branch: "Bengaluru Clinic",
         consultant: "Dr. Sudhir Lohia",
