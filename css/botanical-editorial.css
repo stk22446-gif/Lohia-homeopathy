@@ -438,9 +438,9 @@ em, .italic {
   flex-shrink: 0;
 }
 
-/* Mobile brand text hidden on desktop */
+/* Mobile brand text hidden on laptop, desktop, and tablet (logo only) */
 .header-brand-text {
-  display: none;
+  display: none !important;
 }
 .brand-lohia {
   color: #82B918;
@@ -2611,7 +2611,139 @@ em, .italic {
   }
 }
 
-@media (max-width: 860px) {
+/* ── LAPTOP & DESKTOP HEADER (≥ 1024px) ──────────────────────────────────── */
+@media (min-width: 1024px) {
+  .header-brand-text {
+    display: none !important;
+  }
+  .header-brand {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 0;
+    flex-shrink: 0;
+  }
+  .header-logo-img {
+    height: 60px;
+    width: auto;
+    max-width: 240px;
+    object-fit: contain;
+  }
+  .header-nav {
+    display: flex !important;
+    align-items: center;
+    gap: clamp(1.2rem, 1.8vw, 2.25rem);
+    white-space: nowrap;
+  }
+  .header-nav-link {
+    font-size: clamp(0.85rem, 0.95vw, 0.95rem);
+    white-space: nowrap;
+  }
+  .header-cta-group {
+    display: flex !important;
+    align-items: center;
+    gap: clamp(1rem, 1.5vw, 1.75rem);
+    margin-left: 0;
+    flex-shrink: 0;
+  }
+  .header-phone-quick {
+    display: flex !important;
+    flex-direction: column;
+    align-items: flex-end;
+    white-space: nowrap;
+  }
+  .header-cta-btn {
+    display: inline-flex !important;
+    white-space: nowrap;
+  }
+  .mobile-nav-toggle {
+    display: none !important;
+  }
+  .header-container {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap !important;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1200px) {
+  .header-container {
+    padding-inline: 1.5rem;
+  }
+  .header-nav {
+    gap: 1.25rem;
+  }
+  .header-nav-link {
+    font-size: 0.88rem;
+  }
+  .header-cta-group {
+    gap: 1.15rem;
+  }
+  .header-logo-img {
+    height: 52px;
+  }
+  .header-cta-btn {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.82rem;
+  }
+}
+
+/* ── TABLET HEADER (768px – 1023.98px) ───────────────────────────────────── */
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  .botanical-header {
+    height: 76px;
+  }
+  /* Hide mobile brand text on tablet - logo only */
+  .header-brand-text {
+    display: none !important;
+  }
+  .header-brand {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 0;
+    flex-shrink: 0;
+  }
+  .header-logo-img {
+    height: 52px;
+    width: auto;
+    max-width: 200px;
+    object-fit: contain;
+  }
+  /* Do not force desktop navigation into a cramped tablet header */
+  .header-nav,
+  .header-phone-quick {
+    display: none !important;
+  }
+  .header-cta-group {
+    display: flex !important;
+    align-items: center;
+    gap: 1.25rem;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+  .header-cta-btn {
+    display: inline-flex !important;
+    padding: 0.65rem 1.25rem;
+    font-size: 0.84rem;
+    white-space: nowrap;
+  }
+  .mobile-nav-toggle {
+    display: flex !important;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+  }
+  .header-container {
+    padding-inline: 1.75rem;
+  }
+}
+
+/* ── MOBILE HEADER (< 768px) ─────────────────────────────────────────────── */
+@media (max-width: 767.98px) {
+  .botanical-header {
+    height: 72px;
+  }
   .header-nav, .header-phone-quick, .header-cta-btn {
     display: none !important;
   }
@@ -2620,14 +2752,14 @@ em, .italic {
     flex-shrink: 0;
   }
   .mobile-nav-toggle {
-    display: flex;
+    display: flex !important;
     min-width: 44px;
     min-height: 44px;
     align-items: center;
     justify-content: center;
   }
   .header-brand {
-    display: inline-flex;
+    display: inline-flex !important;
     align-items: center;
     gap: 0.65rem;
     text-decoration: none;
@@ -2635,7 +2767,7 @@ em, .italic {
     flex-shrink: 1;
   }
   .header-brand-text {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     justify-content: center;
     line-height: 1.15;
@@ -2679,6 +2811,9 @@ em, .italic {
     object-fit: contain;
     flex-shrink: 0;
   }
+}
+
+@media (max-width: 860px) {
   .hero-headline {
     font-size: clamp(2.3rem, 6.5vw, 3.2rem);
   }

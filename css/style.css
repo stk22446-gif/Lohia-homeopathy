@@ -309,7 +309,7 @@ em { font-style: italic; }
   flex-shrink: 0;
 }
 
-/* Mobile brand text hidden on desktop */
+/* Mobile brand text hidden on laptop, desktop, and tablet (logo only) */
 .header-brand-text {
   display: none;
 }
